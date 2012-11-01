@@ -35,8 +35,10 @@ class InstallCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $output->writeln('<comment>Install::Start</comment>');
         $this->baseDir = dirname(__FILE__) . '/../../..';
 
+        $output->writeln('<comment>Running commands...</comment>');
         $this->runCommands();
 
         if (strtolower($input->getOption('create_tables')) == 'yes') {
@@ -49,7 +51,7 @@ class InstallCommand extends Command
             $this->sqlFiles[] = $this->baseDir . '/resources/sql/examples.sql';
         }
 
-        $output->writeln('<comment>Install::Start</comment>');
+        $output->writeln('<comment>Importing SQL files...</comment>');
         $this->importFiles($this->sqlFiles, $output);
         $output->writeln('<comment>Install::End</comment>');
     }
@@ -58,7 +60,7 @@ class InstallCommand extends Command
     {
         $process = new Process('mkdir cache log web/assets/css  web/assets/js', $this->baseDir);
         $process->run();
-        $process = new Process('chmod 777 cache log web/assets', $this->baseDir);
+        $process = new Process('chmod 777 cache log web/assets -R', $this->baseDir);
         $process->run();
     }
 
