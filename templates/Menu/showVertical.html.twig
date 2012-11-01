@@ -1,0 +1,24 @@
+{% from "macro.html.twig" import elementBoxItem %}
+<div class="row ">
+    <div class="span12">
+        <ul id="elementBox" class="nav nav-list well">
+            <li class="nav-header">
+                {{ 'lbl.element_box'|trans }}
+            </li>
+        </ul>
+            
+        <ul id="elementForm" class="nav nav-list well">
+            <li class="nav-header">
+                {{ 'lbl.element.properties'|trans }}
+            </li>
+            {{ form_label(elementForm.posxmm, 'lbl.positionxymm'|trans) }}
+            {{ form_widget(elementForm.posxmm, { 'attr': {'class': 'span3'} }) }}
+            {{ form_widget(elementForm.posymm, { 'attr': {'class': 'span3'} }) }}
+            {{ form_label(elementForm.width, 'lbl.widthmm'|trans) }}
+            {{ form_widget(elementForm.width, { 'attr': {'class': 'span3'} }) }}
+            {{ form_label(elementForm.height, 'lbl.heightmm'|trans) }}
+            {{ form_widget(elementForm.height, { 'attr': {'class': 'span3'} }) }}
+            {{ form_rest(elementForm) }}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+{% block header_navbar %}
+<ul id="main-menu-right" class="nav pull-right">
+    <li>
+        <a href="{{ path('route.user.login', {'locale' : app.locale}) }}" title="{{ 'form.user.login.title'|trans }}" id="login-user-button">
+            {{ 'form.user.login.title'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('route.user.signup', {'locale' : app.locale}) }}" title="{{ 'form.user.signup.title'|trans }}" id="signup-user-button">
+            {{ 'form.user.signup.title'|trans }}
+        </a>
+    </li>
+    {% include ('Application/_locale.html.twig') %}
+    <li>
+        <a id="application-about-button" href="#">
+            <i class="icon-info-sign icon-white"></i>
+            {{ 'button.about'|trans }}
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block pageTitle %}
+{{ 'title.signup'|trans }}
+{% endblock %}
+
+{% block content %}
+    <div class="span4 offset6">
+
+        <div class="page-header">
+            <h1>{{ 'form.user.signup.title'|trans }}</h1>
+        </div>
+        <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-vertical well">
+            {{ form_widget(form) }}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">{{ 'form.user.signup.submit_button'|trans }}</button>
+                <p>
+                    {{ 'message.user.already_have_account'|trans }}{{ '?'|trans }}
+                    <a href="{{ path('route.user.login', {'locale' : app.locale}) }}" title="{{ 'form.user.login.title'|trans }}" id="login-user-button">
+                        {{ 'form.user.login.title'|trans }}
+                    </a>
+                </p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

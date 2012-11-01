@@ -1,0 +1,119 @@
+{
+    "name" : "rev42/revpdf-gui",
+    "type" : "library",
+    "description" : "Graphical PDF generation tool for PHP",
+    "keywords" : ["revpdf", "pdf", "php"],
+    "homepage" : "http://www.revpdf.org",
+    "version": "0.9.0-dev",
+    "license" : "Commercial",
+    "authors" : [
+        {
+            "name": "Olivier Cornu",
+            "email": "contact@revpdf.org"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name" : "twitter/bootstrap",
+                "version" : "2.1.1",
+                "source" : {
+                    "url" : "https://github.com/twitter/bootstrap.git",
+                    "type" : "git",
+                    "reference" : "v2.1.1"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name" : "jquery/qunit",
+                "version" : "1.8.0",
+                "source" : {
+                    "url" : "https://github.com/jquery/qunit.git",
+                    "type" : "git",
+                    "reference" : "v1.8.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name" : "gyoshev/qhint",
+                "version" : "master",
+                "source" : {
+                    "url" : "https://github.com/gyoshev/qhint.git",
+                    "type" : "git",
+                    "reference" : "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jwage/EasyCSV",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/jwage/EasyCSV.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name" : "jshint/jshint",
+                "version" : "master",
+                "source" : {
+                    "url" : "https://github.com/jshint/jshint.git",
+                    "type" : "git",
+                    "reference" : "master"
+                }
+            }
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php"                   : ">=5.3.3",
+        "silex/silex"           : "1.0.*",
+        "rev42/revpdf-lib"      : "dev-master",
+        "twig/twig"             : ">=1.8.0,<2.0-dev",
+        "monolog/monolog"       : ">=1.0.0,<1.2-dev",
+        "symfony/form"          : "2.1.*",
+        "symfony/translation"   : "2.1.*",
+        "symfony/twig-bridge"   : "2.1.*",
+        "symfony/validator"     : "2.1.*",
+        "symfony/yaml"          : "2.1.*",
+        "symfony/config"        : "2.1.*",
+        "kriswallsmith/assetic" : "1.0.*",
+        "symfony/security"      : "2.1.*",
+        "symfony/finder"        : "2.1.*",
+        "mheap/silex-assetic"   : "dev-master",
+        "doctrine/dbal"         : "2.2.0",
+        "knplabs/repository-service-provider" : "dev-master",
+        "twitter/bootstrap"     : "2.1.1",
+        "swiftmailer/swiftmailer": "4.2.*",
+        "symfony/console": "2.1.*",
+        "symfony/process": "2.1.*"
+    },
+    "require-dev": {
+        "twig/extensions": "dev-master",
+        "symfony/dom-crawler" : "2.1.*",
+        "symfony/css-selector" : "2.1.*",
+        "symfony/browser-kit" : "2.1.*",
+        "jquery/qunit" : "1.8.0",
+        "gyoshev/qhint" : "dev-master",
+        "jshint/jshint" : "master",
+        "symfony/Filesystem" : "2.1.*"
+    },
+    "config": {
+        "process-timeout": "500"
+    },
+    "autoload": {
+        "psr-0": {
+            "RevPDF": "src/"
+        }
+    }
+}

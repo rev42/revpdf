@@ -1,0 +1,54 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ form.name|default('Form')|trans }}</h1>
+    <div class="tabbable tabs-left">
+        <ul class="nav nav-tabs" id="tab">
+            <li><a href="#report" data-toggle="tab">{{ 'lbl.report'|trans }}</a></li>
+            <li><a href="#document" data-toggle="tab">{{ 'lbl.document'|trans }}</a></li>
+            <li><a href="#page" data-toggle="tab">{{ 'lbl.page'|trans }}</a></li>
+        </ul>
+        <form class="form-horizontal well" action="{{ path('route.report.update', {'locale' : app.locale })}}" method="post" novalidate {{ form_enctype(form) }}>
+            <div class="tab-content">
+                    <div class="tab-pane active" id="report">
+                        {{ form_row(form.full_name) }}
+                        {{ form_row(form.short_name) }}
+                        {{ form_row(form.comments) }}
+                        {{ form_row(form.source_type) }}
+                        {{ form_row(form.source_value) }}
+                    </div>
+                    <div class="tab-pane" id="document">
+                        {{ form_row(form.filename) }}
+                        {{ form_row(form.file_destination) }}
+                        {{ form_row(form.author) }}
+                        {{ form_row(form.keywords) }}
+                        {{ form_row(form.subject) }}
+                        {{ form_row(form.title) }}
+                    </div>
+                    <div class="tab-pane" id="page">
+                        {{ form_row(form.display_mode_zoom) }}
+                        {{ form_row(form.display_mode_layout) }}
+                        {{ form_row(form.paper_format) }}
+                        {{ form_row(form.page_orientation) }}
+                        {{ form_row(form.top_margin) }}
+                        {{ form_row(form.bottom_margin) }}
+                        {{ form_row(form.right_margin) }}
+                        {{ form_row(form.left_margin) }}
+                    </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success primary">
+                    <i class="icon-ok-circle icon-white"></i>
+                    {{ 'button.submit'|trans }}
+                </button> {{ 'lbl.or'|trans }} 
+                <a href="{{ path('homepage', {'locale' : app.locale }) }}">{{ 'button.cancel'|trans }}</a>
+            </div>
+            {{ form_rest(form) }}
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#tab a:first').tab('show');
+        });
+    </script>
+{% endblock %}

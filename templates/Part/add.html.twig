@@ -1,0 +1,54 @@
+{% extends 'layout.html.twig' %}
+
+{% block header_navbar %}
+    <ul id="main-menu-left" class="nav">
+        <li>
+            <a title="{{ 'lbl.reports'|trans }}" href="{{ path('homepage', {'locale' : app.locale}) }}">
+                {{ 'lbl.reports'|trans }}
+            </a>
+        </li>
+        <li>
+            <a title="{{ 'lbl.elements'|trans }}" href="{{ path('route.report.modify', {'locale' : app.locale, 'id' : reportId}) }}">
+            {{ 'lbl.elements'|trans }}
+            </a>
+        </li>
+    </ul>
+    <ul id="main-menu-right" class="nav pull-right">
+        <li class="active">
+            <a href="{{ path('route.part.add', {'locale' : app.locale, 'reportId': reportId}) }}" title="{{ 'lbl.part.add'|trans }}" id="add-part-button">
+                {{ 'lbl.part.add'|trans }}
+            </a>
+        </li>
+        <li>
+            <a id="application-about-button" href="#">
+                <i class="icon-info-sign"></i>
+                {{ 'button.about'|trans }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<h1>{{ form.name|trans }}</h1>
+<div class="tabbable tabs-left">
+        <form class="form-horizontal well" action="{{ path('route.part.create', {'locale' : app.locale, 'reportId': reportId })}}" method="post" novalidate {{ form_enctype(form) }}>
+        {{ form_row(form.weight) }}
+        {{ form_row(form.height) }}
+        {{ form_row(form.is_visible) }}
+        {{ form_row(form.is_page_jump) }}
+        {{ form_row(form.is_indivisible) }}
+        {{ form_row(form.is_auto_extend) }}
+        {{ form_row(form.is_auto_reduc) }}
+        {{ form_row(form.sort_order) }}
+        {{ form_rest(form) }}
+        <div class="form-actions">
+            <button class="btn btn-success primary">
+                <i class="icon-ok-circle icon-white"></i>
+                {{ 'button.submit'|trans }}
+            </button> {{ 'lbl.or'|trans }} 
+            <a href="{{ path('route.report.modify', {'locale' : app.locale, 'id' : reportId }) }}">{{ 'button.cancel'|trans }}</a>
+        </div>
+        {{ form_rest(form) }}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% from "macro.html.twig" import xmlAttribute %}
+<?xml version="1.0" encoding="UTF-8"?>
+<revpdflib {% for attribute,field in reportAttributes %}{{ xmlAttribute(attribute, report[field]) }}{% endfor %}>
+<source provider="{{ report.provider }}">
+        <value><![CDATA[{{ report.source_value }}]]></value>
+    </source>
+    {% if parts|length > 0 %}
+        {% for part in parts %}
+        <{{ part.name|lower }} {% for attribute,field in partAttributes %}{{ xmlAttribute(attribute, part[field]) }}{% endfor %}>
+            {% if part.Elements is defined and part.Elements|length > 0 %}
+                {% for element in part.Elements %}
+                    <{{ element.type|lower }} {% for attribute,field in elementAttributes %}{{ xmlAttribute(attribute, element[field]) }}{% endfor %}>
+                    {% if element.font_family is defined %}
+                        <font fontName="{{ element.font_family }}" size="{{ element.size }}" isBold="{% if ('B' in element.style) %}{{1}}{% else %}{{0}}{% endif %}" isItalic="{% if ('I' in element.style) %}{{1}}{% else %}{{0}}{% endif %}" isUnderline="{% if ('U' in element.style) %}{{1}}{% else %}{{0}}{% endif %}" />
+                    {% endif %}
+                    <![CDATA[{{ element.field }}]]>
+                    </{{ element.type|lower }}>
+                {% endfor %}
+            {% endif %}
+        </{{ part.name|lower }}>
+        {% endfor %}
+    {% endif %}
+</revpdflib>

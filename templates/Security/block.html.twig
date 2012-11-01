@@ -1,0 +1,5 @@
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <li>
+        <a href="{{ path('logout') }}">{{ 'lbl.logout'|trans }}</a>
+    </li>
+{% endif %}

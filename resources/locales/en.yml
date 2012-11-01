@@ -1,0 +1,200 @@
+title.homepage: "RevPDF: Report list"
+title.modify.report: Modify report
+
+report.fullname: Fullname
+report.shortname: Shortname
+report.creationdate: Creation date
+report.comments: Comments
+actions: Actions
+
+report.add: Create report
+report.edit: Edit
+report.modify: Properties
+report.generate.pdf: Generate PDF
+report.export.xml: Export XML
+report.delete: Delete
+report.none.available: No available report
+
+datatables.records.per.page: record(s) per page
+datatables.showing.start.to.end.of.total.entries: _START_ to _END_ / _TOTAL_ record(s)
+datatables.search: Search
+datatables.previous: Previous
+datatables.next: Next
+datatables.first: First
+datatables.last: Last
+
+
+form.name.create.report: Create new report
+form.name.modify.report: Modify report
+form.report.fullname: Name
+form.report.shortname: Shortname
+form.report.comments: Comments
+form.report.database: Database
+form.report.sourcevalue: Source
+form.report.sourcetype: Source Type
+form.report.filename: Filename
+form.report.filedestination: Destination file
+form.report.author: Author
+form.report.keywords: Keywords
+form.report.subject: Subject
+form.report.title: Title
+form.report.display_mode_zoom: Display mode (zoom)
+form.report.pdf.display_mode_zoom.fullpage: Full page
+form.report.pdf.display_mode_zoom.fullwidth: Full width
+form.report.pdf.display_mode_zoom.real: Real
+form.report.pdf.display_mode_zoom.default: Default
+form.report.display_mode_layout: Display Mode (page)
+form.report.pdf.display_mode_layout.continuous: Continuous
+form.report.pdf.display_mode_layout.single: Single
+form.report.pdf.display_mode_layout.two: Two
+form.report.pdf.display_mode_layout.default: Default
+form.report.paper_format: Paper format
+form.report.pdf.paper_format.a4: A4
+form.report.pdf.paper_format.a3: A3
+form.report.pdf.paper_format.letter: Letter (279x216)
+form.report.pdf.paper_format.legal: Legal (356x216)
+form.report.page_orientation: Page Orientation
+form.report.pdf.page_orientation.portrait: Portrait
+form.report.pdf.page_orientation.landscape: Landscape
+form.report.top_margin: Top Margin
+form.report.bottom_margin: Bottom Margin
+form.report.right_margin: Right Margin
+form.report.left_margin: Left Margin
+form.report.pdf.destination.automaticopening: Ouverture automatique du document dans le navigateur
+form.report.pdf.destination.sendtobrowser: Envoyer le document au navigateur et forcer le téléchargement
+form.report.pdf.destination.saveinfile: Sauvegarder dans fichier
+form.invalid.supply: Invalid form
+
+form.user.login.title: Login
+form.user.email: Email
+form.user.password: Password
+form.user.login.submit_button: Login
+form.user.signup.title: Signup
+form.user.signup.submit_button: Signup
+form.user.fullname: Firstname Lastname
+
+
+form.part.height: Height
+form.part.type: Type
+form.part.is_visible: Visible
+form.part.is_page_jump: Page jump
+form.part.is_indivisible: Indivisible
+form.part.is_auto_extend: Auto-extend
+form.part.is_auto_reduc: Auto-reduc
+form.part.sort_order: Sort order
+form.choice.no: No
+form.choice.yes: Yes
+form.choice.asc: Asc
+form.choice.desc: Desc
+form.element.zindex: Z-index
+form.element.format: Format
+form.element.is_auto_extend: Auto-extend
+form.element.source_control: Champ source
+form.element.element_field: Content
+
+message.warning: Warning !
+message.cannot_create_element: Cannot create element
+message.element_created: Element created
+message.element_updated: Element updated
+message.element_deleted: Element deleted
+message.cannot_update_element: Cannot update element
+message.cannot_delete_element: Cannot delete element
+message.exception_occurred_with_info: An exception has been thrown. Please look at the log file
+message.are.you.sure: Do you confirm?
+message.report.delete: Delete this report
+message.part.delete: Delete this part
+message.success: Success
+message.no_part_for_this_report: No existing part for this report
+message.incorrect_json_data: Data couldn't have been properly decoded
+message.404: Page not found
+message.500: Internal server error. Please contact administrator
+message.user.login_failed: Email/password invalid
+message.user.login_successful: Login successfull
+message.user.signup.password_doesnt_match: Password doesn't match
+message.user.already_have_account: Already have an account
+message.user.signup_successful: Signup successful
+message.user.signup.user_already_exist: There is already an account associated with that email address
+message.user.signup.user_already_exist_but_not_validated: There is already an account associated with that email address. Please validate your email address to log in
+message.user.signup.please_validate_your_account: An email has been send to %mail%. Please read it and follow the instructions to validate your account.
+message.mail.activate_account: Activate your account
+message.mail.intro: Hello,
+message.mail.ready_to_activate_account: We're ready to activate your account. All we need to do is make sure this is your email address.
+message.mail.click_here: Click here to verify your email address
+message.user.signup.failed_enabling_account: Account has NOT been enabled or is already enabled.
+message.user.signup.success_enabling_account: Your account has been activated
+
+lbl.report: Report
+lbl.document: Document
+lbl.page: Page
+lbl.or: or
+lbl.reports: Reports
+lbl.revpdf: "PDF Report generator: RevPDF"
+lbl.loading: Loading...
+lbl.haveyoutried: Have you tried?
+lbl.display_on_startup: Display on startup
+lbl.part_properties: Part properties
+lbl.delete_part: Delete part
+lbl.elements: Elements
+lbl.part.add: Add part
+lbl.report.save: Save
+lbl.application.help: Help
+lbl.part: Part
+lbl.part.page_footer: Page Footer
+lbl.part.details: Details
+lbl.part.report_header: Report Header
+lbl.part.page_header: Page Header
+lbl.part.report_footer: Report Footer
+lbl.widthmm: Width (mm)
+lbl.heightmm: Height (mm)
+lbl.element.textfield: Textfield
+lbl.element.textzone: Textzone
+lbl.element.pagenumber: Page Number
+lbl.element.image: Image
+lbl.element.line: Line
+lbl.element.rectangle: Rectangle
+lbl.element.roundedbox: Rounded Rectangle
+lbl.positionxymm: X/Y (mm)
+lbl.element.properties: Properties
+lbl.element_box: Elements
+lbl.widthmm: Largeur (mm)
+lbl.heightmm: Hauteur (mm)
+lbl.alignToLeft: Align to left
+lbl.alignToRight: Align to right
+lbl.alignToTop: Align to top
+lbl.alignToBottom: Align to bottom
+lbl.adjustToLargest: Adjust to largest
+lbl.adjustToTightest: Adjust to tightest
+lbl.adjustToHighest: Adjust to highest
+lbl.adjustToSmallest: Adjust to smallest
+lbl.bold: Bold
+lbl.italic: Italic
+lbl.underline: Underline
+lbl.logout: Logout
+lbl.btnBorderNone: No border
+lbl.btnBorderAll: All borders
+lbl.btnBorderBottom: Border (bottom)
+lbl.btnBorderTop: Border (top)
+lbl.btnBorderLeft: Border (left)
+lbl.btnBorderRight: Border (right)
+
+lbl.mail.subject.account_confirmation: "[RevPDF] Account confirmation"
+
+Part: Part
+Report: Report
+pageFooter: Page Footer
+details: Details
+reportHeader: Report Header
+pageHeader: Page Header
+reportFooter: Report Footer
+
+button.cancel: Cancel
+button.submit: Submit
+button.close: Close
+button.language: Language
+button.about: About
+button.previous: Previous
+button.next: Next
+
+application.about.description: First graphical generator on the web
+
+hello: Hello %name%

@@ -1,0 +1,94 @@
+{% block choice_widget %}
+{% spaceless %}
+    {% if expanded %}
+        <ul {{ block('widget_container_attributes') }} class="inputs-list">
+        {% for child in form %}
+            <li>
+                {{ form_label(child, null, { 'in_list_checkbox' : true, 'widget' : form_widget(child) } ) }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none %}
+            <option value="">{{ empty_value|trans }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('widget_choice_options') }}
+            {% if choices|length > 0 %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+        {% set options = choices %}
+        {{ block('widget_choice_options') }}
+    </select>
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget %}
+
+{% block generic_label %}
+{% spaceless %}
+    {% if required %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' required'}) %}
+    {% endif %}
+    {% if in_list_checkbox is defined and in_list_checkbox and widget is defined %}
+        <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+            {{ widget|raw }}
+            <span>
+                {{ label|trans }}
+            </span>
+        </label>
+    {% else %}
+        <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>{{ label|trans }}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block field_row %}
+{% spaceless %}
+    <div class="clearfix {{ (0 < form_errors(form)|length)? 'error':'' }} ">
+        {{ form_label(form, label|default(null)) }}
+        <div class="input">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock field_row %}
+
+{% block field_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% if not form.hasParent  or 'repeated' in form.vars.types %}
+            <div class="clearfix error">
+        {% endif %}
+        <span class="help-inline">
+            {% for error in errors %}
+                {% if loop.first %}
+                    {{ error.messageTemplate|trans(error.messageParameters, 'validators') }}
+                {% endif %}
+            {% endfor %}
+        </span>
+        {% if not form.hasParent  or 'repeated' in form.vars.types %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endspaceless %}
+{% endblock field_errors %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <ul class="error">
+        {% for error in errors %}
+            <li>{{
+                error.messagePluralization is null
+                    ? error.messageTemplate|trans(error.messageParameters, 'validators')
+                    : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+            }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

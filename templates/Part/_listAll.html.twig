@@ -1,0 +1,5 @@
+{% for part in parts %}
+    {% include ('Part/_delete.html.twig') with {part: part} %}
+{% endfor %}
+<div id="part-layout" data-reportid="{{ report.id }}">
+<div>

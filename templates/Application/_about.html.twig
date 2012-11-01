@@ -1,0 +1,15 @@
+<div class="modal hide fade" id="applicationAbout">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>{{ 'button.about'|trans }}</h3>
+    </div>
+    <div class="modal-body">
+        <img src="{{ app.request.basepath }}/assets/img/revpdf_logo.png" />
+        <div>{{ app.gui.name }} {{ app.gui.version }}</div>
+        <div>{{ app.lib.name }} {{ app.lib.version }}</div>
+        <a href="http://www.revpdf.org">http://www.revpdf.org</a>
+    </div>
+    <div class="modal-footer">
+        <a data-dismiss="modal" class="btn btn-primary" href="#">{{ 'button.close'|trans }}</a>
+    </div>
+</div>

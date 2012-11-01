@@ -1,0 +1,201 @@
+title.homepage: "RevPDF : liste des états"
+title.modify.report: "RevPDF : modifier un état"
+title.login: "RevPDF : connexion"
+title.signup: "RevPDF : se créer un compte"
+
+report.fullname: Nom
+report.shortname: Nom court
+report.creationdate: Date de création
+report.comments: Commentaires
+actions: Actions
+
+report.add: Créer état
+report.edit: Modifier 
+report.modify: Propriétés 
+report.generate.pdf: Générer PDF
+report.export.xml: Exporter XML
+report.delete: Supprimer
+report.none.available: Aucun état disponible
+
+datatables.records.per.page: enregistrement(s) par page
+datatables.showing.start.to.end.of.total.entries: _START_ à _END_ / _TOTAL_ enregistrement(s)
+datatables.search: Recherche
+datatables.previous: Précédent
+datatables.next: Suivant
+datatables.first: Premier
+datatables.last: Dernier
+
+
+form.name.create.report: Créer un état
+form.name.modify.report: Modifier un état
+form.report.fullname: Nom
+form.report.shortname: Nom court
+form.report.comments: Commentaires
+form.report.database: Base de données
+form.report.sourcevalue: Source
+form.report.sourcetype: Type de source de données
+form.report.filename: Nom du fichier
+form.report.filedestination: Destination du fichier
+form.report.author: Auteur
+form.report.keywords: Mots-clés
+form.report.subject: Sujet
+form.report.title: Titre
+form.report.display_mode_zoom: Mode d'affichage (zoom)
+form.report.pdf.display_mode_zoom.fullpage: Page entière
+form.report.pdf.display_mode_zoom.fullwidth: Largeur maximale
+form.report.pdf.display_mode_zoom.real: Réel
+form.report.pdf.display_mode_zoom.default: Par défaut
+form.report.display_mode_layout: Mode d'affichage (page)
+form.report.pdf.display_mode_layout.continuous: Continu
+form.report.pdf.display_mode_layout.single: Une seule
+form.report.pdf.display_mode_layout.two: Deux
+form.report.pdf.display_mode_layout.default: Par défaut
+form.report.paper_format: Format de page
+form.report.pdf.paper_format.a4: A4
+form.report.pdf.paper_format.a3: A3
+form.report.pdf.paper_format.letter: Lettre (279x216)
+form.report.pdf.paper_format.legal: Légal (356x216)
+form.report.page_orientation: Orientation de la page
+form.report.pdf.page_orientation.portrait: Portrait
+form.report.pdf.page_orientation.landscape: Paysage
+form.report.top_margin: Marge haute
+form.report.bottom_margin: Marge basse
+form.report.right_margin: Marge droite
+form.report.left_margin: Marge gauche
+form.report.pdf.destination.automaticopening: Ouverture automatique du document dans le navigateur
+form.report.pdf.destination.sendtobrowser: Envoyer le document au navigateur et forcer le téléchargement
+form.report.pdf.destination.saveinfile: Sauvegarder dans fichier
+form.invalid.supply: Formulaire invalide
+
+form.user.login.title: Connexion
+form.user.email: Email
+form.user.password: Mot de passe
+form.user.login.submit_button: Se connecter
+form.user.signup.title: Créer un compte
+form.user.signup.submit_button: Créer un compte
+form.user.fullname: Prénom Nom
+
+form.part.height: Height
+form.part.type: Type
+form.part.is_visible: Visible
+form.part.is_page_jump: Saut de page
+form.part.is_indivisible: Indivisible
+form.part.is_auto_extend: Agrandissement auto.
+form.part.is_auto_reduc: Réduction auto.
+form.part.sort_order: Tri
+form.choice.no: Non
+form.choice.yes: Oui
+form.choice.asc: Asc
+form.choice.desc: Desc
+form.element.zindex: Z-index
+form.element.format: Format
+form.element.is_auto_extend: Agrandissement auto.
+form.element.source_control: Champs source
+form.element.element_field: Contenu
+
+message.warning: Attention !
+message.cannot_create_element: Impossible de créer l'élément
+message.element_created: Elément créé
+message.element_updated: Elément modifié
+message.element_deleted: Elément supprimé
+message.cannot_update_element: Impossible de modifier l'élément
+message.cannot_delete_element: Impossible de supprimer l'élément
+message.exception_occurred_with_info: Une exception est survenue. Veuillez consulter les fichiers de log
+message.are.you.sure: Confirmer cette opération ?
+message.report.delete: Supprimer cet état
+message.part.delete: Supprimer cette section
+message.success: Succès
+message.no_part_for_this_report: Aucune section n'existe pour cet état
+message.incorrect_json_data: Les données envoyées n'ont pas pu être décodées
+message.404: Page non trouvée
+message.500: Erreur serveur interne. Veuillez contacter l'administrateur du site
+message.user.login_failed: Email/mot de passe invalide
+message.user.login_successful: Connexion réussie
+message.user.signup.password_doesnt_match: Les mots de passe ne correspondent pas
+message.user.already_have_account: Vous possédez déjà un compte
+message.user.signup_successful: Inscription réussie
+message.user.signup.user_already_exist: Un compte utilisateur existe déjà avec cette adresse email
+message.user.signup.user_already_exist_but_not_validated: Un compte utilisateur existe déjà avec cette adresse email. Veuillez valider votre adresse mail pour vous connecter
+message.user.signup.please_validate_your_account: Un email a été envoyé à %mail%. Veuillez le lire et suivre les instructions afin de valider votre compte.
+message.mail.activate_account: Activer votre compte
+message.mail.intro: Bonjour,
+message.mail.ready_to_activate_account: Nous sommes prêt à activer votre compte. Nous n'avons plus qu'à valider votre adresse email.
+message.mail.click_here: Cliquez ici pour valider votre adresse email
+message.user.signup.failed_enabling_account: Votre compte n'a pas pu être activé ou est déjà activé
+message.user.signup.success_enabling_account: Votre compte a été activé
+
+lbl.report: Etat
+lbl.document: Document
+lbl.page: Page
+lbl.or: ou
+lbl.reports: Etats
+lbl.revpdf: "RevPDF : Générateur d'états PDF"
+lbl.loading: Chargement en cours...
+lbl.haveyoutried: Avez-vous essayé ?
+lbl.display_on_startup: Afficher au démarrage
+lbl.part_properties: Propriétés de la section
+lbl.delete_part: Supprimer la section
+lbl.elements: Eléments
+lbl.part.add: Ajouter une section
+lbl.report.save: Sauvegarder
+lbl.application.help: Aide
+lbl.part: Section
+lbl.part.page_footer: Pied de page
+lbl.part.details: Détails
+lbl.part.report_header: Entête d'état
+lbl.part.page_header: Entête de page
+lbl.part.report_footer: Pied d'état
+lbl.widthmm: Largeur (mm)
+lbl.heightmm: Hauteur (mm)
+lbl.element.textfield: Texte
+lbl.element.textzone: Champ texte
+lbl.element.pagenumber: Page
+lbl.element.image: Image
+lbl.element.line: Ligne
+lbl.element.rectangle: Rectangle
+lbl.element.roundedbox: Rectangle arrondi
+lbl.positionxymm: Position X/Y (mm)
+lbl.element.properties: Propriétés
+lbl.element_box: Eléments
+lbl.widthmm: Largeur (mm)
+lbl.heightmm: Hauteur (mm)
+lbl.alignToLeft: Alignement à gauche
+lbl.alignToRight: Alignement à right
+lbl.alignToTop: Alignement en haut
+lbl.alignToBottom: Alignement en bas
+lbl.adjustToLargest: Ajustement au plus large
+lbl.adjustToTightest: Ajustement au plus étroit
+lbl.adjustToHighest: Ajustement au plus grand
+lbl.adjustToSmallest: Ajustement au plus petit
+lbl.bold: Gras
+lbl.italic: Italique
+lbl.underline: Souligné
+lbl.logout: Se déconnecter
+lbl.btnBorderNone: Aucune bordure
+lbl.btnBorderAll: Toutes les bordures
+lbl.btnBorderBottom: Bordure (bas)
+lbl.btnBorderTop: Bordure (haut)
+lbl.btnBorderLeft: Bordure (gauche)
+lbl.btnBorderRight: Bordure (droit)
+
+lbl.mail.subject.account_confirmation: "[RevPDF] Confirmation de compte"
+
+Part: Section
+Report: Etat
+pageFooter: Pied de page
+details: Détails
+reportHeader: Entête d'état
+pageHeader: Entête de page
+reportFooter: Pied d'état
+
+button.cancel: Annuler
+button.submit: Valider
+button.close: Fermer
+button.language: Langue
+button.about: A propos
+button.previous: Précédent
+button.next: Suivant
+
+application.about.description: Le premier générateur de PDF à interface graphique pour l'environnement web
+
+hello: Salut %name%

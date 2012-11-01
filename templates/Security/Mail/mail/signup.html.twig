@@ -1,0 +1,26 @@
+{% extends "Mail/mail_template.html.twig" %}
+
+{% block mail_text %}
+{{ message_mail_activate_account }}
+
+{{ message_mail_intro }}
+{{ message_mail_ready_to_activate_account }}
+
+{{ message_mail_click_here }}:
+{{ message_mail_href_validation }}
+{% endblock %}
+
+{% block mail_html %}
+<p>
+    <h2>{{ message_mail_activate_account }}</h2>
+    <p>
+        <p>{{ message_mail_intro }} </p>
+        <p>{{ message_mail_ready_to_activate_account }}</p>
+        <p>
+            <a href="{{ message_mail_href_validation }}">
+                {{ message_mail_click_here }}
+            </a>
+        </p>
+    </p>
+</p>
+{% endblock %}

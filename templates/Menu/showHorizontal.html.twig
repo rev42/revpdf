@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="span12 well">
+        <div class="btn-toolbar">
+            <div id="btnFontButtons" class="btn-group">
+                {{ form_widget(elementForm.font_family, { 'attr': {'class': 'span2'} }) }}
+                {{ form_widget(elementForm.size, { 'attr': {'class': 'span2'} }) }}
+            </div>
+            <div id="btnFontstyleButtons" class="btn-group" data-toggle="buttons-checkbox">
+                <button id='BtnFontStyleBold' class="btn" title="{{ 'lbl.bold'|trans }}" data-style="B"><i class="icon-rev icon-BtnFontStyleBold"></i></button>
+                <button id='BtnFontStyleItalic' class="btn" title="{{ 'lbl.italic'|trans }}" data-style="I"><i class="icon-rev icon-BtnFontStyleItalic"></i></button>
+                <button id='BtnFontStyleUnderlined' class="btn" title="{{ 'lbl.underline'|trans }}" data-style="U"><i class="icon-rev icon-BtnFontStyleUnderlined"></i></button>
+            </div>
+            <div class="btn-group">
+                <div id="fontColorPicker" class="colorPicker input-append color" data-color="#000000" data-color-format="hex">
+                    {{ form_widget(elementForm.text_color) }}
+                    <span class="add-on"><i class="icon-rev icon-BtnFontColor" style="background-color: rgb(0, 0, 0);"></i></span>
+                </div>
+            </div>
+            <div id="btnBorderButtons" class="btn-group" data-toggle="buttons-checkbox">
+                <button id="BtnBorderNone" data-style="" class="btn" title="{{ 'lbl.btnBorderNone'|trans }}"><i class="icon-rev icon-BtnBorderNone"></i></button>
+                <button id="BtnBorderAll" data-style="LRBT" class="btn" title="{{ 'lbl.btnBorderAll'|trans }}"><i class="icon-rev icon-BtnBorderAll"></i></button>
+                <button id="BtnBorderBottom" data-style="B" class="btn" title="{{ 'lbl.btnBorderBottom'|trans }}"><i class="icon-rev icon-BtnBorderBottom"></i></button>
+                <button id="BtnBorderTop" data-style="T" class="btn" title="{{ 'lbl.btnBorderTop'|trans }}"><i class="icon-rev icon-BtnBorderTop"></i></button>
+                <button id="BtnBorderLeft" data-style="L" class="btn" title="{{ 'lbl.btnBorderLeft'|trans }}"><i class="icon-rev icon-BtnBorderLeft"></i></button>
+                <button id="BtnBorderRight" data-style="R" class="btn" title="{{ 'lbl.btnBorderRight'|trans }}"><i class="icon-rev icon-BtnBorderRight"></i></button>
+            </div>
+            <div id="borderWidthWrapper">
+                {{ form_widget(elementForm.border_width, { 'attr': {'class': 'span2'} }) }}
+            </div>
+            <div id="btnAlignmentButtons" class="btn-group" data-toggle="buttons-radio">
+                <button id="btnAlignLeft"  data-align="L" class="btn"><i class="icon-align-left"></i></button>
+                <button id="btnAlignCenter"  data-align="C" class="btn"><i class="icon-align-center"></i></button>
+                <button id="btnAlignRight"  data-align="R" class="btn"><i class="icon-align-right"></i></button>
+            </div>
+            <div class="btn-group">
+                <div id="fillColorPicker" class="colorPicker input-append color" data-color="#000000" data-color-format="hex">
+                    {{ form_widget(elementForm.fill_color) }}
+                    <span class="add-on"><i class="icon-rev icon-BtnFillColor" style="background-color: rgb(0, 0, 0);"></i></span>
+                </div>
+            </div>
+            <div id="btnDivAlignmentButtons" class="btn-group">
+                <button id="btnDivAlignLeft" class="btn" title="{{ 'lbl.alignToLeft'|trans }}">
+                    <i class="icon-rev icon-BtnAlignToLeft"></i>
+                </button>
+                <button id="btnDivAlignRight" class="btn" title="{{ 'lbl.alignToRight'|trans }}">
+                    <i class="icon-rev icon-BtnAlignToRight"></i>
+                </button>
+                <button id="btnDivAlignTop" class="btn" title="{{ 'lbl.alignToTop'|trans }}">
+                    <i class="icon-rev icon-BtnAlignToTop"></i>
+                </button>
+                <button id="btnDivAlignBottom" class="btn" title="{{ 'lbl.alignToBottom'|trans }}">
+                    <i class="icon-rev icon-BtnAlignToBottom"></i>
+                </button>
+             </div>
+        </div>
+    </div>
+</div>

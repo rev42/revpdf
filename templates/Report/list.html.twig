@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+
+{% block menu_logout %}
+    {% if app.security is defined %}
+        {% include ('Security/block.html.twig') %}
+    {% endif %}
+{% endblock %}
+
+{% block menu_locale %}
+    {% include ('Application/_locale.html.twig') %}
+{% endblock %}
+
+{% block content %}
+    {% from "macro.html.twig" import imgShowReportStatus %}
+    {% from "macro.html.twig" import linkAction %}
+
+    <table id='reportsList' cellpadding="0" cellspacing="0" border="0" class='reportsList table table-striped'>
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>{{ 'report.fullname'|trans }}</th>
+                <th>{{ 'report.shortname'|trans }}</th>
+                <th>{{ 'report.creationdate'|trans }}</th>
+                <th>{{ 'report.comments'|trans }}</th>
+                <th>{{ 'actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if reports | length > 0 %}
+                {% for report in reports %}
+                    <tr id="report-{{ report.id }}" class="{{ cycle(['rowodd', 'roweven'], report.id) }}">
+                        <td>{{ imgShowReportStatus(report.is_private) }}</td>
+                        <td>{{ report.full_name }}</td>
+                        <td>{{ report.short_name }}</td>
+                        <td>{{ report.created_at|date('d-m-Y H:i:s') }}</td>
+                        <td>{{ report.comments }}</td>
+                        <td class="report-list-actions">
+                            {{ linkAction(path('route.report.modify', {'locale' : app.locale, 'id' : report.id}), 'report-show-details-button btn ', 'icon-pencil', 'report.modify'|trans, 'report.edit'|trans) }}
+                            {{ linkAction(path('route.report.edit', {'locale' : app.locale, 'id' : report.id}), 'report-properties-button btn ', 'icon-cog', 'report.edit'|trans, 'report.modify'|trans) }}
+                            {{ linkAction(path('report.generate', {'locale' : app.locale, 'id' : report.id}), 'generate-report-button btn ', 'icon-download', 'report.generate.pdf'|trans, 'report.generate.pdf'|trans) }}
+                            <a target="_blank" id="{{ 'export-report-button-' ~ report.id }}" href="{{ path('report.export', {'format' : 'xml', 'locale' : app.locale, 'id' : report.id}) }}" class="export-report-button btn" title="{{ 'report.export.xml'|trans }}">
+                                <i class="icon-share"></i>
+                                {{ 'report.export.xml'|trans }}
+                            </a>
+                            {{ linkAction('#', 'delete-report-button btn btn-danger ', 'icon-trash icon-white', 'report.delete'|trans, 'report.delete'|trans, 'delete-report-button-' ~ report.id) }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr class="roweven">
+                    <td>{{ 'report.none.available'|trans }}</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            {% endif %}
+
+        </tbody>
+    </table>
+
+    {% for report in reports %}
+        <div class="modal hide fade" id="modal-report-delete-{{ report.id }}">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">×</button>
+                <h3>{{ 'message.report.delete'|trans }}</h3>
+            </div>
+            <div class="modal-body">
+                <p>{{ 'message.are.you.sure'|trans }}</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ path('route.report.delete', {'locale' : app.locale, 'id' : report.id }) }}" class="btn btn-primary">{{ 'button.submit'|trans }}</a>
+                {{ 'lbl.or'|trans }}
+                <a data-dismiss="modal" href="#">{{ 'button.cancel'|trans }}</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('{{ '#delete-report-button-' ~ report.id }}').click(function(){
+                $('{{ '#modal-report-delete-' ~ report.id }}').modal('toggle');
+                return false;
+            });
+        </script>
+    {% endfor %}
+{% endblock %}

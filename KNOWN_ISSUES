@@ -1,0 +1,6 @@
+## Known Issues
+
+Resizable image cannot be dragged: see http://bugs.jqueryui.com/ticket/3446
+After install, users must create two symbolic links:
+ - resources/assets/css/themes/bootstrap/bootstrap.css points to ../../../../../vendor/twitter/bootstrap/docs/assets/css/bootstrap.css
+ - resources/assets/js/bootstrap.min.js points to ../../../vendor/twitter/bootstrap/docs/assets/js/bootstrap.min.js

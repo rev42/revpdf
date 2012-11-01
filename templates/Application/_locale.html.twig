@@ -1,0 +1,7 @@
+<li class="dropdown">
+    <a id="choose-language-link" data-toggle="dropdown" class="dropdown-toggle" href="#">{{ 'button.language'|trans }} <b class="caret"></b></a>
+    <ul class="dropdown-menu" role="menu">
+        <li><a href="{{ path(app.request.attributes.get('_route'), {'locale' : 'fr'}) }}"><i class="icon-i18n flag-fr_FR"></i> {{ 'Français'|trans }}</a></li>
+        <li><a href="{{ path(app.request.attributes.get('_route'), {'locale' : 'en'}) }}"><i class="icon-i18n flag-en_US"></i> {{ 'English'|trans }}</a></li>
+    </ul>
+</li>

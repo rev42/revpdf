@@ -1,0 +1,22 @@
+<div class="modal hide fade" id="modal-part-delete-{{ part.id }}">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>{{ 'message.part.delete'|trans }}</h3>
+    </div>
+    <div class="modal-body">
+        <p>{{ 'message.are.you.sure'|trans }}</p>
+    </div>
+    <div class="modal-footer">
+        <a href="{{ path('route.part.delete', {'locale' : app.locale, 'id' : part.id }) }}" class="btn btn-primary">{{ 'button.submit'|trans }}</a>
+        {{ 'lbl.or'|trans }}
+        <a data-dismiss="modal" href="#">{{ 'button.cancel'|trans }}</a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        $('{{ '#edit-delete-' ~ part.id }}').click(function(){
+            $('{{ '#modal-part-delete-' ~ part.id }}').modal('toggle');
+            return false;
+        });
+    });
+</script>

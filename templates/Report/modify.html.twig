@@ -1,0 +1,110 @@
+{% extends 'layout.html.twig' %}
+
+{% block pageTitle %}
+    {{ 'title.modify.report'|trans }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ app.request.basepath }}/bootstrap-colorpicker/css/colorpicker.css">     
+    <link rel="stylesheet" href="{{ app.request.basepath }}/js/libs/contextmenu/jquery.contextMenu.css">     
+{% endblock %}
+
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ app.request.basepath }}/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="{{ app.request.basepath }}/js/libs/contextmenu/jquery.contextMenu.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function($) {
+        // Create report
+        var reportId = $('#part-layout').data('reportid');
+        var report = new Report(reportId, '', '');
+        report.setReportWidth({{ (report.dimensions.width-report.left_margin-report.right_margin)*app.gui.mmPxConversion }});
+
+        {% for part in parts %}
+            {% set partNumber = loop.index0 %}
+            var part_{{loop.index0}} = new Part({{ part.id }},{{ report.id }},{{ part.weight }},{{ part.height }},{{ part.is_visible }},{{ part.is_page_jump }},{{ part.is_indivisible }},{{ part.is_auto_extend }},{{ part.is_auto_reduc }},'{{ part.sort_order }}','{{ part.name|trans }}', '{{ (report.dimensions.width-report.left_margin-report.right_margin)*app.gui.mmPxConversion }}', '{{ part.height * app.gui.mmPxConversion }}', '{{ path('route.part.edit', {'locale': app.locale, 'id': part.id}) }}');
+            report.addPart(part_{{loop.index0}});
+            {% for element in part.Elements %}
+                var newElement = new myElement({{ part.id}}, {{ element.id}}, '{{ element.type }}', '{{ element.field}}', '{{ element.format }}', '{{ element.fill_color }}', '{{ element.text_color }}', '{{ element.border }}', '{{ element.border_width }}', '{{ element.font_family }}', '{{ element.size}}', '{{ element.is_auto_extend }}', '{{ element.style }}', '{{ element.alignment }}', '{{ element.posx * app.gui.mmPxConversion }}', '{{ element.posy * app.gui.mmPxConversion }}', '{{ element.height }}', '{{ element.width }}', 0, '{{ element.zindex }}');
+                part_{{ partNumber }}.addElement(newElement);
+            {% endfor %}
+        {% endfor %}
+        $('#part-layout').core({
+            report: report
+        });
+
+        $('#btnFontstyleButtons').fontStyle();
+        $('#btnFontButtons').fontSize();
+        $('#btnBorderButtons').border();
+        $('#borderWidthWrapper').borderWidth();
+        $('#btnAlignmentButtons').textAlignment();
+        $('#btnDivAlignmentButtons').divAlignment();
+    });
+    </script>
+{% endblock %}
+
+
+
+{% block header_navbar %}
+<ul id="main-menu-left" class="nav">
+    <li>
+        <a title="{{ 'lbl.reports'|trans }}" href="{{ path('homepage', {'locale' : app.locale}) }}">
+            {{ 'lbl.reports'|trans }}
+        </a>
+    </li>
+    <li class="active">
+        <a title="{{ 'lbl.elements'|trans }}" href="{{ path('route.report.modify', {'locale' : app.locale, 'id' : report.id}) }}">
+        {{ 'lbl.elements'|trans }}
+        </a>
+    </li>
+</ul>
+
+<ul id="main-menu-right" class="nav pull-right">
+    <li>
+        <button autocomplete="off" id="save-report-button" class="btn btn-primary" data-href='{{ path('route.report.save', {'locale' : app.locale, 'reportId' : report.id}) }}' data-loading-text="saving...">{{ 'lbl.report.save'|trans }}</button>
+    </li>
+    <li>
+        <a title="{{ 'lbl.part.add'|trans }}" href="{{ path('route.part.add', {'locale' : app.locale, 'reportId' : report.id}) }}" id="add-part-button">
+            {{ 'lbl.part.add'|trans }}
+        </a>
+    </li>
+    <li>
+        <a id="application-about-button" href="#">
+            <i class="icon-info-sign icon-white"></i>
+            {{ 'button.about'|trans }}
+        </a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block messages %}
+    <div id="status-messages" class="alert" style="display:none">
+        <h4 class="alert-heading"></h4>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="span12">
+            {% include 'Menu/showHorizontal.html.twig' %}
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                {% include 'Menu/showVertical.html.twig' %}
+            </div>
+            <div class="span10">
+                {% if parts | length > 0 %}
+                    {% include 'Part/_listAll.html.twig' with { "parts": parts } %}
+                {% else %}
+                    {{ 'message.no_part_for_this_report'|trans }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

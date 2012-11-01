@@ -1,0 +1,28 @@
+{% macro imgShowReportStatus(is_private) %}
+    {% if (is_private == 1) %}
+        {% set path = app.request.basepath ~ '/assets/img/icons/tag_red.png' %}
+        {% set label = 'Private'|trans %}
+    {% else %}
+        {% set path = app.request.basepath ~ '/assets/img/icons/tag_green.png' %}
+        {% set label = 'Public'|trans %}
+    {% endif %}
+    <img src='{{ path }}' alt='{{ label }}' title='{{ label }}' />
+{% endmacro %}
+
+{% macro linkAction(path, class, icon, title, value, id) %}
+    <a id="{{ id }}" href="{{ path }}" class="{{ class }}" title="{{ title }}">
+        <i class="{{ icon }}"></i>
+        {{ value }}
+    </a>
+{% endmacro %}
+    
+{% macro xmlAttribute(name, value) %}
+{{ name }}="{{ value }}"
+{% endmacro %}
+
+{% macro elementBoxItem(label, icon, id) %}
+    <li id="{{ id }}">
+        <i class="icon-rev {{ icon }}"></i>
+        {{ label|trans }}
+    </li>
+{% endmacro %}
