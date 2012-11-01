@@ -29,7 +29,8 @@ class InstallCommand extends Command
         $this
             ->setName('revpdf:application:install')
             ->setDescription('Finish application install')
-            ->addOption('import_samples', null, InputOption::VALUE_OPTIONAL, 'Import report samples', 'no');
+            ->addOption('import_samples', null, InputOption::VALUE_OPTIONAL, 'Import report samples', 'no')
+            ->addOption('create_tables', null, InputOption::VALUE_OPTIONAL, 'Create SQL tables', 'no');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -38,9 +39,11 @@ class InstallCommand extends Command
 
         $this->runCommands();
 
-        $this->sqlFiles = array(
-            $this->baseDir . '/resources/sql/schema.sql',
-        );
+        if (strtolower($input->getOption('create_tables')) == 'yes') {
+            $this->sqlFiles = array(
+                $this->baseDir . '/resources/sql/schema.sql',
+            );
+        }
 
         if (strtolower($input->getOption('import_samples')) == 'yes') {
             $this->sqlFiles[] = $this->baseDir . '/resources/sql/examples.sql';
@@ -53,7 +56,7 @@ class InstallCommand extends Command
 
     protected function runCommands()
     {
-        $process = new Process('mkdir cache log', $this->baseDir);
+        $process = new Process('mkdir cache log web/assets/css  web/assets/js', $this->baseDir);
         $process->run();
         $process = new Process('chmod 777 cache log web/assets', $this->baseDir);
         $process->run();
