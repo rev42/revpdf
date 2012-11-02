@@ -1,5 +1,5 @@
 
-CREATE TABLE `_r_invoice` (
+CREATE TABLE IF NOT EXISTS `_r_invoice` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `customer_firstname` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `customer_lastname` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE `_r_invoice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-CREATE TABLE `_r_invoice_line` (
+CREATE TABLE IF NOT EXISTS `_r_invoice_line` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `invoice_id` bigint(20) unsigned NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `_r_invoice_line` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
-CREATE TABLE `_r_article` (
+CREATE TABLE IF NOT EXISTS `_r_article` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `designation` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `prixachat` float(18,2) DEFAULT NULL,
