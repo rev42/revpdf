@@ -34,8 +34,10 @@ class ReportType extends AbstractType
         ->add('comments', 'text', array('label' => 'form.report.comments'))
         ->add('source_type', 'choice', array(
             'label' => 'form.report.sourcetype',
-            'choices'   => array('DB' => 'form.report.database'),
-            'required'  => true,
+            'choices'   => array(
+                'None' => 'form.report.sourcetype.none',
+                'DB' => 'form.report.sourcetype.database'
+            ),'required'  => true,
         ))
         ->add('source_value', 'textarea', array('label' => 'form.report.sourcevalue'))
         ->add('filename', 'text', array('label' => 'form.report.filename'))

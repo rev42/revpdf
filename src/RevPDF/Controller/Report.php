@@ -243,9 +243,11 @@ class Report implements ControllerProviderInterface
             $data['report']['leftMargin'] = $report['left_margin'];
             $data['report']['paperFormat'] = $report['paper_format'];
             $data['report']['pageOrientation'] = $report['page_orientation'];
-            // TODO: softcode provider
-            $data['source']['provider'] = 'PdoProvider';
-            $data['source']['value'] = $report['source_value'];
+
+            if ($report['source_type'] == 'DB') {
+                $data['source']['provider'] = 'PdoProvider';
+                $data['source']['value'] = $report['source_value'];
+            }
 
             if (count($parts) > 0) {
                 foreach ($parts as $part) {

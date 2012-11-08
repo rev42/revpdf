@@ -31,7 +31,8 @@ form.name.modify.report: Modifier un état
 form.report.fullname: Nom
 form.report.shortname: Nom court
 form.report.comments: Commentaires
-form.report.database: Base de données
+form.report.sourcetype.none: Aucun
+form.report.sourcetype.database: Base de données
 form.report.sourcevalue: Source
 form.report.sourcetype: Type de source de données
 form.report.filename: Nom du fichier
@@ -182,11 +183,11 @@ lbl.mail.subject.account_confirmation: "[RevPDF] Confirmation de compte"
 
 Part: Section
 Report: Etat
-pageFooter: Pied de page
+pagefooter: Pied de page
 details: Détails
-reportHeader: Entête d'état
-pageHeader: Entête de page
-reportFooter: Pied d'état
+reportheader: Entête d'état
+pageheader: Entête de page
+reportfooter: Pied d'état
 
 button.cancel: Annuler
 button.submit: Valider

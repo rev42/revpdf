@@ -29,7 +29,8 @@ form.name.modify.report: Modify report
 form.report.fullname: Name
 form.report.shortname: Shortname
 form.report.comments: Comments
-form.report.database: Database
+form.report.sourcetype.none: None
+form.report.sourcetype.database: Database
 form.report.sourcevalue: Source
 form.report.sourcetype: Source Type
 form.report.filename: Filename
@@ -181,11 +182,11 @@ lbl.mail.subject.account_confirmation: "[RevPDF] Account confirmation"
 
 Part: Part
 Report: Report
-pageFooter: Page Footer
+pagefooter: Page Footer
 details: Details
-reportHeader: Report Header
-pageHeader: Page Header
-reportFooter: Report Footer
+reportheader: Report Header
+pageheader: Page Header
+reportfooter: Report Footer
 
 button.cancel: Cancel
 button.submit: Submit

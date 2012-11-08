@@ -38,7 +38,9 @@
                         {{ form_row(form.short_name) }}
                         {{ form_row(form.comments) }}
                         {{ form_row(form.source_type) }}
-                        {{ form_row(form.source_value) }}
+                        <div id='container-source_value'>
+                            {{ form_row(form.source_value) }}
+                        </div>
                     </div>
                     <div class="tab-pane" id="document">
                         {{ form_row(form.filename) }}
@@ -72,6 +74,13 @@
     <script type="text/javascript">
         $(function () {
             $('#tab a:first').tab('show');
+            $('#Report_source_type').on('change', function(){
+               if ($(this).val() != 'None') {
+                   $('#container-source_value').show();
+               } else {
+                   $('#container-source_value').hide();
+               }
+            });
         });
     </script>
 {% endblock %}

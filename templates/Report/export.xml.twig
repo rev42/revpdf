@@ -1,9 +1,11 @@
 {% from "macro.html.twig" import xmlAttribute %}
 <?xml version="1.0" encoding="UTF-8"?>
 <revpdflib {% for attribute,field in reportAttributes %}{{ xmlAttribute(attribute, report[field]) }}{% endfor %}>
-<source provider="{{ report.provider }}">
+    {% if (report.provider is defined) %}
+    <source provider="{{ report.provider }}">
         <value><![CDATA[{{ report.source_value }}]]></value>
     </source>
+    {% endif %}
     {% if parts|length > 0 %}
         {% for part in parts %}
         <{{ part.name|lower }} {% for attribute,field in partAttributes %}{{ xmlAttribute(attribute, part[field]) }}{% endfor %}>

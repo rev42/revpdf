@@ -16,11 +16,11 @@ use Knp\Repository;
 class Part Extends Repository
 {
     protected $parts = array(
-        \RevPDFLib\Items\Part\PageHeader::ID => 'pageHeader',
-        \RevPDFLib\Items\Part\ReportHeader::ID => 'reportHeader',
+        \RevPDFLib\Items\Part\PageHeader::ID => 'pageheader',
+        \RevPDFLib\Items\Part\ReportHeader::ID => 'reportheader',
         \RevPDFLib\Items\Part\Details::ID => 'details',
-        \RevPDFLib\Items\Part\PageFooter::ID => 'pageFooter',
-        \RevPDFLib\Items\Part\ReportFooter::ID => 'reportFooter'
+        \RevPDFLib\Items\Part\PageFooter::ID => 'pagefooter',
+        \RevPDFLib\Items\Part\ReportFooter::ID => 'reportfooter'
     );
 
     public function getParts()
