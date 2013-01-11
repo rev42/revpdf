@@ -15,18 +15,6 @@
         {
             "type": "package",
             "package": {
-                "name" : "twitter/bootstrap",
-                "version" : "2.1.1",
-                "source" : {
-                    "url" : "https://github.com/twitter/bootstrap.git",
-                    "type" : "git",
-                    "reference" : "v2.1.1"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name" : "jquery/qunit",
                 "version" : "1.8.0",
                 "source" : {
@@ -92,7 +80,7 @@
         "mheap/silex-assetic"   : "dev-master",
         "doctrine/dbal"         : "2.2.0",
         "knplabs/repository-service-provider" : "dev-master",
-        "twitter/bootstrap"     : "2.1.1",
+        "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "4.2.*",
         "symfony/console": "2.1.*",
         "symfony/process": "2.1.*"
