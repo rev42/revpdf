@@ -75,6 +75,10 @@ form.user.login.submit_button: Se connecter
 form.user.signup.title: Créer un compte
 form.user.signup.submit_button: Créer un compte
 form.user.fullname: Prénom Nom
+form.user.account.create: Créer un nouveau compte
+form.user.no_account: Pas de compte ?
+form.user.login.google_account_button: Compte Google
+form.user.or_login_with: Ou se connecter avec :
 
 form.part.height: Height
 form.part.type: Type

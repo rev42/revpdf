@@ -15,11 +15,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserLoginType extends AbstractType
+class UserLoginSSOType extends AbstractType
 {
     public function getName()
     {
@@ -29,19 +28,22 @@ class UserLoginType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('_username', 'email', array('label' => 'form.user.email', 'attr' => array ('class' => 'input-block-level'), 'required' => true))
-            ->add('_password', 'password', array('label' => 'form.user.password', 'attr' => array ('class' => 'input-block-level'), 'required' => true));
+            ->add('openid_identifier', 'hidden', array('data' => 'https://www.google.com/accounts/o8/id', 'required' => true))
+            ->add('returnUrl', 'hidden', array('data' => '/', 'required' => true))
+            ->add('confirmNew', 'hidden', array('data' => 'true', 'required' => true));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(
             array(
-                '_username' => array(
+                'openid_identifier' => array(
                     new NotBlank(),
-                    new Email(),
                 ),
-                '_password' => array(
+                'returnUrl' => array(
+                    new NotBlank(),
+                ),
+                'confirmNew' => array(
                     new NotBlank(),
                 )
             )

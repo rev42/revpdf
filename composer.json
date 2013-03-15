@@ -68,6 +68,7 @@
         "symfony/finder"        : "~2.2",
         "mheap/silex-assetic"   : "dev-master@dev",
         "doctrine/dbal"         : "2.2.0",
+        "fp/lightopenid"        : "dev-master",
         "knplabs/repository-service-provider" : "dev-master",
         "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "4.2.*",

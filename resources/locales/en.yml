@@ -73,7 +73,10 @@ form.user.login.submit_button: Login
 form.user.signup.title: Signup
 form.user.signup.submit_button: Signup
 form.user.fullname: Firstname Lastname
-
+form.user.account.create: Create an account
+form.user.no_account: No account?
+form.user.login.google_account_button: Google Account
+form.user.or_login_with: Or log in with:
 
 form.part.height: Height
 form.part.type: Type

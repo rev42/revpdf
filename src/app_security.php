@@ -10,12 +10,18 @@ use RevPDF\Repository\UserProvider;
 $app->register(new SecurityServiceProvider());
 
 $app['security.firewalls'] = array(
+    // Not securing login path
     'login' => array(
         'pattern' => '^/[a-z]{2}/login$',
     ),
+    'login_sso' => array(
+        'pattern' => '^/[a-z]{2}/loginSSO$',
+    ),
+    // Not securing signup path
     'signup' => array(
         'pattern' => '^/[a-z]{2}/signup$',
     ),
+    // Not securing signup_confirmation path
     'signup_confirmation' => array(
         'pattern' => '^/[a-z]{2}/signup/confirm/[a-zA-Z0-9]+$',
     ),
@@ -45,8 +51,13 @@ $app->match('/{locale}/login', function(Request $request) use ($app) {
         new \RevPDF\Form\UserLoginType()
     )->getForm();
 
+    $formSSO = $app['form.factory']->createBuilder(
+        new \RevPDF\Form\UserLoginSSOType()
+    )->getForm();
+
     return $app['twig']->render('Security/login.html.twig', array(
         'form'          => $form->createView(),
+        'formSSO'       => $formSSO->createView(),
         'error'         => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
     ));
@@ -204,7 +215,19 @@ $app->post('/{locale}/signup', function(Request $request) use ($app) {
 })->bind('route.user.register');
 
 
+$app->match('/login_sso', function(Request $request) use ($app) {
+        var_dump(1);exit;
 
-$app->match('/login_check', function(Request $request) use ($app) {
-})->bind('route.user.login_check');
+        $formSSO = $app['form.factory']->createBuilder(
+            new \RevPDF\Form\UserLoginSSOType()
+        )->getForm();
+
+        $formSSO->bindRequest($app['request']);
+
+        $data = $formSSO->getData();
+        if ($formSSO->isValid()) {
+            echo 'valiud';exit;
+        }
+        echo 1;exit;
+    })->bind('route.user.check_login_sso');
 
