@@ -29,7 +29,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ form.name|trans }}</h1>
+<h1>{{ form.vars.name|trans }}</h1>
 <div class="tabbable tabs-left">
         <form class="form-horizontal well" action="{{ path('route.part.create', {'locale' : app.locale, 'reportId': reportId })}}" method="post" novalidate {{ form_enctype(form) }}>
         {{ form_row(form.weight) }}

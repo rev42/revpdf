@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PartType extends AbstractType
 {
@@ -85,7 +86,7 @@ class PartType extends AbstractType
         return array('0' => 'form.choice.no', '1' => 'form.choice.yes');
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(array(
             'id' => new Type('numeric'),

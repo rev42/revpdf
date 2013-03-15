@@ -18,6 +18,7 @@ use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UserSignupType extends AbstractType
 {
@@ -40,7 +41,7 @@ class UserSignupType extends AbstractType
         ;
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(array(
             'fullname' => array(

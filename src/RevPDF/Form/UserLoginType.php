@@ -17,6 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UserLoginType extends AbstractType
 {
@@ -32,7 +33,7 @@ class UserLoginType extends AbstractType
             ->add('_password', 'password', array('label' => 'form.user.password', 'required' => true));
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(
             array(
