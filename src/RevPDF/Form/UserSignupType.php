@@ -30,12 +30,12 @@ class UserSignupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fullname', 'text', array('label' => 'form.user.fullname', 'required' => true))
-            ->add('mail', 'email', array('label' => 'form.user.email', 'required' => true))
+            ->add('fullname', 'text', array('label' => 'form.user.fullname', 'attr' => array ('class' => 'input-block-level'), 'required' => true))
+            ->add('mail', 'email', array('label' => 'form.user.email', 'attr' => array ('class' => 'input-block-level'), 'required' => true))
             ->add('password', 'repeated', array(
                 'type' => 'password',
                 'invalid_message' => 'message.user.signup.password_doesnt_match',
-                'options' => array('label' => 'form.user.password'), 
+                'options' => array('label' => 'form.user.password', 'attr' => array ('class' => 'input-block-level')),
                 'required' => true
              ))
         ;
