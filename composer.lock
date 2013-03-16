@@ -1,5 +1,5 @@
 {
-    "hash": "4d337b96d05bd5afddb8d05b168588d8",
+    "hash": "f6af129b35040166f364bd723f0c3368",
     "packages": [
         {
             "name": "doctrine/common",
@@ -122,6 +122,46 @@
                 "queryobject"
             ],
             "time": "2012-01-29 03:19:23"
+        },
+        {
+            "name": "fp/lightopenid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/formapro/LightOpenID.git",
+                "reference": "ad14146f9c93e90699888e150427aca431dc3c18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/formapro/LightOpenID/zipball/ad14146f9c93e90699888e150427aca431dc3c18",
+                "reference": "ad14146f9c93e90699888e150427aca431dc3c18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "openid.php",
+                    "provider/provider.php"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mewp",
+                    "email": "mewp151+gitorious.org@gmail.com"
+                }
+            ],
+            "description": "A PHP 5 library for easy openid authentication",
+            "homepage": "https://github.com/formapro/LightOpenID",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "security"
+            ],
+            "time": "2012-04-04 08:39:51"
         },
         {
             "name": "jwage/easy-csv",
@@ -1747,6 +1787,7 @@
     "stability-flags": {
         "silex/silex": 20,
         "mheap/silex-assetic": 20,
+        "fp/lightopenid": 20,
         "knplabs/repository-service-provider": 20,
         "twig/extensions": 20,
         "gyoshev/qhint": 20

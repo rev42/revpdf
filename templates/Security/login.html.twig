@@ -48,7 +48,7 @@
                         </form>
                     </div>
                     <div class="span4">
-                        <form action="{{ path('route.user.check_login_sso') }}" method="post" class="well">
+                        <form action="{{ path('route.user.check_login_sso', {'locale' : app.locale}) }}" method="post" class="well">
                             {{ error }}
                             {{ form_widget(formSSO) }}
                             <div class="form-actions">

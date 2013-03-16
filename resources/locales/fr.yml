@@ -128,6 +128,7 @@ message.mail.ready_to_activate_account: Nous sommes prêt à activer votre compt
 message.mail.click_here: Cliquez ici pour valider votre adresse email
 message.user.signup.failed_enabling_account: Votre compte n'a pas pu être activé ou est déjà activé
 message.user.signup.success_enabling_account: Votre compte a été activé
+message.user.loggedin.as: Connecté en tant que %username%
 
 lbl.report: Etat
 lbl.document: Document

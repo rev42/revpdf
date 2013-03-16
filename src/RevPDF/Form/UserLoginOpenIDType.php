@@ -18,7 +18,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserLoginSSOType extends AbstractType
+class UserLoginOpenIDType extends AbstractType
 {
     public function getName()
     {

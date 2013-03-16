@@ -126,6 +126,7 @@ message.mail.ready_to_activate_account: We're ready to activate your account. Al
 message.mail.click_here: Click here to verify your email address
 message.user.signup.failed_enabling_account: Account has NOT been enabled or is already enabled.
 message.user.signup.success_enabling_account: Your account has been activated
+message.user.loggedin.as: Logged in as %username%
 
 lbl.report: Report
 lbl.document: Document

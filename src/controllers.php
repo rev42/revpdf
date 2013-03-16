@@ -35,4 +35,8 @@ $app->mount('/{locale}/Part', new \RevPDF\Controller\Part());
 $app->mount('/{locale}/Report', new \RevPDF\Controller\Report());
 $app->mount('/{locale}/Element', new \RevPDF\Controller\Element());
 
+if (isset($enable_security) && $enable_security == 1) {
+    $app->mount('/', new \RevPDF\Controller\Security());
+}
+
 return $app;
