@@ -198,11 +198,10 @@ class Security implements ControllerProviderInterface
                         $data['lastname'] = isset($splittedFullname[1]) ? ucfirst($splittedFullname[1]) : '';
                         $data['roles'] = 'ROLE_USER';
                         $data['enabled'] = false;
-                        $user = new User($data['mail'], '', '', explode(',', 'ROLE_USER'), false, true, true, true);
-                        $data['password'] = $app['security.encoder_factory']->getEncoder($user)->encodePassword($data['password'], $user->getSalt());
                         $app['monolog']->addDebug('Adding new user with those values: ' . json_encode($data));
+                        $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password']);
 
-                        if ($app['repository.user']->insert($data) <= 0) {
+                        if ($resCreateUser <= 0) {
                             $app['monolog']->addDebug('User cannot be created');
                             $app['session']->setFlash('warning', 'Your account has not been created. Please try again.');
 
@@ -255,30 +254,25 @@ class Security implements ControllerProviderInterface
                         'post' => $data,
                     ));
             })->bind('route.user.register');
-/*
-    $controller->match('/{locale}/login/with/google', function(Request $request) use ($app) {
-        $app['monolog']->addDebug('login/with/google');
-    })->bind('route.user.check_login_sso');
 
-    $controller->match('/{locale}/login/with/google/callback', function(Request $request) use ($app) {
-        $app['monolog']->addDebug('login/with/google/callback');
-    })->bind('route.user.check_login_sso_callback');*/
+
 
 
         $controller->match('/{locale}/login/with/google', function(Request $request) use ($app) {
-                $formSSO = $app['form.factory']->createBuilder(
-                    new UserLoginOpenIDType()
-                )->getForm();
-
+                $formSSO = $app['form.factory']->createBuilder(new UserLoginOpenIDType())->getForm();
                 $formSSO->bind($app['request']);
-
                 $data = $formSSO->getData();
+
                 if (!$app['session']->has('username')) {
                     $openid = new \LightOpenID($_SERVER['SERVER_NAME']);
 
                     if (!$openid->mode) {
                         $openid->identity = $data['openid_identifier'];
-                        $openid->required = array('email' => 'contact/email');
+                        $openid->required = array(
+                            'email' => 'contact/email',
+                            'firstname' => 'namePerson/first',
+                            'lastname' => 'namePerson/last'
+                        );
 
                         return $app->redirect($openid->authUrl());
                     } else {
@@ -298,14 +292,38 @@ class Security implements ControllerProviderInterface
 
                                     $app->redirect($app['url_generator']->generate('homepage', array('locale' => $app['locale'])));
                                 } else {
-                                    $user = $userProvider->loadUserByUsername($attributes['contact/email']);
                                     $token = new UsernamePasswordToken($user, $user->getPassword(), 'secured', $user->getRoles());
+                                    $app['session']->set('_security_secured', serialize($token));
+                                    $app['session']->set('username', $user->getUsername());
                                 }
                             } else {
-                                echo 'not exists. Need to create it';
+                                $data = array();
+                                $data['firstname'] = $attributes['namePerson/first'];
+                                $data['lastname'] = $attributes['namePerson/last'];
+                                $data['roles'] = 'ROLE_USER';
+                                $data['mail'] = $attributes['contact/email'];
+                                $data['enabled'] = true;
+                                $data['password'] = 'password';
+                                $app['monolog']->addDebug('Adding new user with those values: ' . json_encode($data));
+                                $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password']);
+                                if ($resCreateUser <= 0) {
+                                    $app['monolog']->addDebug('User cannot be created');
+                                    $app['session']->setFlash('warning', 'Your account has not been created. Please try again.');
+
+                                    return $app['twig']->render('Security/login.html.twig', array(
+                                            'form' => $formSSO->createView(),
+                                            'post' => $data,
+                                        ));
+                                }
+                                $userProvider = new UserProvider($app['db']);
+                                $user = $this->checkUserExist($userProvider, $attributes['contact/email']);
+                                if ($user) {
+                                    $user = $userProvider->loadUserByUsername($attributes['contact/email']);
+                                    $token = new UsernamePasswordToken($user, $user->getPassword(), 'secured', $user->getRoles());
+                                    $app['session']->set('_security_secured', serialize($token));
+                                    $app['session']->set('username', $user->getUsername());
+                                }
                             }
-                            $app['session']->set('_security_secured', serialize($token));
-                            $app['session']->set('username', $user->getUsername());
                         }
                     }
                 }
@@ -345,5 +363,18 @@ class Security implements ControllerProviderInterface
         } else {
             return false;
         }
+    }
+
+    public function createUser($app, $firstname, $lastname, $role, $enabled, $mail, $password) {
+        $data['firstname'] = $firstname;
+        $data['lastname'] = $lastname;
+        $data['roles'] = $role;
+        $data['enabled'] = $enabled;
+        $data['mail'] = $mail;
+        $user = new User($mail, '', $mail, '', explode(',', $data['roles']), false, true, true, true);
+        $data['password'] = $app['security.encoder_factory']->getEncoder($user)->encodePassword($password, $user->getSalt());
+        $app['monolog']->addDebug('Adding new user with those values: ' . json_encode($data));
+
+        return $app['repository.user']->insert($data);
     }
 }

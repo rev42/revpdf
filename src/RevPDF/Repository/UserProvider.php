@@ -66,7 +66,7 @@ class UserProvider extends Repository implements UserProviderInterface
             throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
         }
 
-        return new User($user['mail'], $user['password'], $user['id'], explode(',', $user['roles']), $user['enabled'], true, true, true, $user['confirmation_token']);
+        return new User($user['mail'], $user['password'], $user['mail'], $user['id'], explode(',', $user['roles']), $user['enabled'], true, true, true, $user['confirmation_token']);
     }
 
     public function findByConfirmationToken($token)
@@ -77,7 +77,7 @@ class UserProvider extends Repository implements UserProviderInterface
             return null;
         }
 
-        return new User($user['mail'], $user['password'], $user['id'], explode(',', $user['roles']), $user['enabled'], true, true, true, $user['confirmation_token']);
+        return new User($user['mail'], $user['password'], $user['mail'], $user['id'], explode(',', $user['roles']), $user['enabled'], true, true, true, $user['confirmation_token']);
     }
 
     public function getUser($username)
