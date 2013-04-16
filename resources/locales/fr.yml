@@ -122,6 +122,7 @@ message.user.signup_successful: Inscription réussie
 message.user.signup.user_already_exist: Un compte utilisateur existe déjà avec cette adresse email
 message.user.signup.user_already_exist_but_not_validated: Un compte utilisateur existe déjà avec cette adresse email. Veuillez valider votre adresse mail pour vous connecter
 message.user.signup.please_validate_your_account: Un email a été envoyé à %mail%. Veuillez le lire et suivre les instructions afin de valider votre compte.
+message.user.signup.account_has_not_been_created: Votre compte utilisateur n'a pas pu être créé. Veuillez réessayer plus tard.
 message.mail.activate_account: Activer votre compte
 message.mail.intro: Bonjour,
 message.mail.ready_to_activate_account: Nous sommes prêt à activer votre compte. Nous n'avons plus qu'à valider votre adresse email.

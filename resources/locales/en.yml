@@ -120,6 +120,7 @@ message.user.signup_successful: Signup successful
 message.user.signup.user_already_exist: There is already an account associated with that email address
 message.user.signup.user_already_exist_but_not_validated: There is already an account associated with that email address. Please validate your email address to log in
 message.user.signup.please_validate_your_account: An email has been send to %mail%. Please read it and follow the instructions to validate your account.
+message.user.signup.account_has_not_been_created: Your account has not been created. Please try again.
 message.mail.activate_account: Activate your account
 message.mail.intro: Hello,
 message.mail.ready_to_activate_account: We're ready to activate your account. All we need to do is make sure this is your email address.

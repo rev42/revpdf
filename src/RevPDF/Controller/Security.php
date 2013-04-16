@@ -308,7 +308,7 @@ class Security implements ControllerProviderInterface
                                 $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password']);
                                 if ($resCreateUser <= 0) {
                                     $app['monolog']->addDebug('User cannot be created');
-                                    $app['session']->setFlash('warning', 'Your account has not been created. Please try again.');
+                                    $app['session']->setFlash('warning', 'message.user.signup.account_has_not_been_created');
 
                                     return $app['twig']->render('Security/login.html.twig', array(
                                             'form' => $formSSO->createView(),
