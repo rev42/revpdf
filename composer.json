@@ -72,8 +72,10 @@
         "knplabs/repository-service-provider" : "dev-master",
         "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "4.2.*",
-        "symfony/console": "~2.2",
-        "symfony/process": "~2.2"
+        "symfony/console"       : "~2.2",
+        "symfony/process"       : "~2.2",
+        "icehero/silex-opauth"  : "dev-master@dev",
+        "opauth/openid"         : "dev-master@dev"
     },
     "require-dev": {
         "twig/extensions": "dev-master",

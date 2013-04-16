@@ -21,8 +21,11 @@ use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Knp\Provider\RepositoryServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
-
 use Symfony\Component\Translation\Loader\YamlFileLoader;
+
+use SilexOpauth\OpauthExtension;
+
+
 
 $app = new Silex\Application();
 
@@ -194,6 +197,18 @@ $app->register(
         )
     )
 );
+
+$app['opauth'] = array(
+    'login' => '/fr/login/with/google',
+    'callback' => '/fr/login/with/google/callback',
+    'config' => array(
+        'security_salt' => 'LDFmiilYf8Fyw5W10rxx4W1KsVrieQCnpBzzpTBWA5vJidQKDx8pMJbmw28R1C4m',
+        'Strategy' => array(
+            'OpenID' => array(),
+        )
+    )
+);
+$app->register(new OpauthExtension());
 
 
 if (isset($enable_assetic) && $enable_assetic == 1) {

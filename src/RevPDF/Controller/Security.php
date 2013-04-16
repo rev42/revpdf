@@ -13,6 +13,7 @@ use Silex\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Silex\Provider\SecurityServiceProvider;
 
 
@@ -36,23 +37,36 @@ class Security implements ControllerProviderInterface
             // Not securing login path
             'login' => array(
                 'pattern' => '^/[a-z]{2}/login$',
+                'anonymous'=>true
             ),
             // Not securing this path
             'login_google_openid' => array(
+                'pattern' => '^/[a-z]{2}/login/with/google/openid$',
+                'anonymous'=>true
+            ),
+            'login_google_openid' => array(
                 'pattern' => '^/[a-z]{2}/login/with/google$',
+                'anonymous'=>true
             ),
             // Not securing signup path
             'signup' => array(
                 'pattern' => '^/[a-z]{2}/signup$',
+                'anonymous'=>true
             ),
             // Not securing signup_confirmation path
             'signup_confirmation' => array(
                 'pattern' => '^/[a-z]{2}/signup/confirm/[a-zA-Z0-9]+$',
+                'anonymous'=>true
             ),
             // Securing all other paths
             'secured' => array(
                 'pattern' => '^.*$',
-                'form' => array('login_path' => '/fr/login', 'check_path' => '/login_check'),
+                'form' => array(
+                    // l'utilisateur est redirigé ici quand il/elle a besoin de se connecter
+                    'login_path' => '/fr/login',
+                    // soumet le formulaire de login vers cette URL
+                    'check_path' => '/login_check',
+                ),
                 'logout' => array('logout_path' => '/logout'),
                 'users' => $app->share(function () use ($app) {
                     return new UserProvider($app['db']);
@@ -66,7 +80,6 @@ class Security implements ControllerProviderInterface
 
         $app['security.access_rules'] = array(
             array('^/admin', 'ROLE_ADMIN'),
-            array('^.*$', 'ROLE_USER'),
         );
 
         /**
@@ -91,6 +104,7 @@ class Security implements ControllerProviderInterface
 
 
         $controller->match('/logout', function(Request $request) use ($app) {
+            $app['session']->clear();
         })->bind('route.user.logout');
 
 
@@ -241,6 +255,14 @@ class Security implements ControllerProviderInterface
                         'post' => $data,
                     ));
             })->bind('route.user.register');
+/*
+    $controller->match('/{locale}/login/with/google', function(Request $request) use ($app) {
+        $app['monolog']->addDebug('login/with/google');
+    })->bind('route.user.check_login_sso');
+
+    $controller->match('/{locale}/login/with/google/callback', function(Request $request) use ($app) {
+        $app['monolog']->addDebug('login/with/google/callback');
+    })->bind('route.user.check_login_sso_callback');*/
 
 
         $controller->match('/{locale}/login/with/google', function(Request $request) use ($app) {
@@ -276,18 +298,14 @@ class Security implements ControllerProviderInterface
 
                                     $app->redirect($app['url_generator']->generate('homepage', array('locale' => $app['locale'])));
                                 } else {
-                                    $app['monolog']->addDebug('User already exists with this mail');
-
+                                    $user = $userProvider->loadUserByUsername($attributes['contact/email']);
                                     $token = new UsernamePasswordToken($user, $user->getPassword(), 'secured', $user->getRoles());
-                                    $authToken = $app['security.authentication_manager']->authenticate($token);
-                                    $app['security']->setToken($authToken);
-
-                                    return $app->redirect('/index_dev.php/login_check');
                                 }
                             } else {
-                                echo 'not exists';
+                                echo 'not exists. Need to create it';
                             }
-                            //$app['session']->set('username', $attributes['contact/email']);
+                            $app['session']->set('_security_secured', serialize($token));
+                            $app['session']->set('username', $user->getUsername());
                         }
                     }
                 }
