@@ -97,6 +97,9 @@ form.element.source_control: Champ source
 form.element.element_field: Content
 
 message.warning: Warning !
+message.success: Success !
+message.info: Info !
+message.error: Error !
 message.cannot_create_element: Cannot create element
 message.element_created: Element created
 message.element_updated: Element updated
