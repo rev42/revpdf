@@ -41,7 +41,7 @@ class Report implements ControllerProviderInterface
                         new \RevPDF\Form\ReportType()
                     )->getForm();
 
-            $form->bindRequest($app['request']);
+            $form->bind($app['request']);
             $data = $form->getData();
 
             if ($form->isValid()) {
@@ -189,7 +189,7 @@ class Report implements ControllerProviderInterface
                             new \RevPDF\Form\ReportType()
                     )->getForm();
 
-            $form->bindRequest($app['request']);
+            $form->bind($app['request']);
             $data = $form->getData();
 
             if ($form->isValid()) {

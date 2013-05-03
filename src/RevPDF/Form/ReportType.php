@@ -17,6 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ReportType extends AbstractType
 {
@@ -98,7 +99,7 @@ class ReportType extends AbstractType
         ->add('left_margin', 'text', array('label' => 'form.report.left_margin', 'data' => 10));
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(array(
             'id' => new Type('numeric'),

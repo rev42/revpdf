@@ -75,6 +75,10 @@ form.user.login.submit_button: Se connecter
 form.user.signup.title: Créer un compte
 form.user.signup.submit_button: Créer un compte
 form.user.fullname: Prénom Nom
+form.user.account.create: Créer un nouveau compte
+form.user.no_account: Pas de compte ?
+form.user.login.google_account_button: Compte Google
+form.user.or_login_with: Ou se connecter avec :
 
 form.part.height: Height
 form.part.type: Type
@@ -95,6 +99,9 @@ form.element.source_control: Champs source
 form.element.element_field: Contenu
 
 message.warning: Attention !
+message.success: Succès !
+message.info: Info !
+message.error: Erreur !
 message.cannot_create_element: Impossible de créer l'élément
 message.element_created: Elément créé
 message.element_updated: Elément modifié
@@ -118,12 +125,14 @@ message.user.signup_successful: Inscription réussie
 message.user.signup.user_already_exist: Un compte utilisateur existe déjà avec cette adresse email
 message.user.signup.user_already_exist_but_not_validated: Un compte utilisateur existe déjà avec cette adresse email. Veuillez valider votre adresse mail pour vous connecter
 message.user.signup.please_validate_your_account: Un email a été envoyé à %mail%. Veuillez le lire et suivre les instructions afin de valider votre compte.
+message.user.signup.account_has_not_been_created: Votre compte utilisateur n'a pas pu être créé. Veuillez réessayer plus tard.
 message.mail.activate_account: Activer votre compte
 message.mail.intro: Bonjour,
 message.mail.ready_to_activate_account: Nous sommes prêt à activer votre compte. Nous n'avons plus qu'à valider votre adresse email.
 message.mail.click_here: Cliquez ici pour valider votre adresse email
 message.user.signup.failed_enabling_account: Votre compte n'a pas pu être activé ou est déjà activé
 message.user.signup.success_enabling_account: Votre compte a été activé
+message.user.loggedin.as: Connecté en tant que %username%
 
 lbl.report: Etat
 lbl.document: Document

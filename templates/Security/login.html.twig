@@ -26,18 +26,39 @@
 {% endblock %}
 
 {% block content %}
-    <div class="span4 offset6">
-       
-        <div class="page-header">
-            <h1>{{ 'form.user.login.title'|trans }}</h1>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="page-header">
+                    <h1>{{ 'form.user.login.title'|trans }}</h1>
+                </div>
 
-        <form action="{{ path('login_check') }}" method="post" class="form-vertical well">
-            {{ error }}
-            {{ form_widget(form) }}
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">{{ 'form.user.login.submit_button'|trans }}</button>
-             </div>
-        </form>
+                <div class="row-fluid">
+                    <div class="span4">
+                        <form action="{{ path('login_check') }}" method="post" class="well">
+                            {{ error }}
+                            {{ form_widget(form) }}
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">{{ 'form.user.login.submit_button'|trans }}</button>
+                            </div>
+                            {{ 'form.user.no_account'|trans }}
+                            <a href="{{ path('route.user.signup', {'locale' : app.locale}) }}" title="{{ 'form.user.signup.title'|trans }}" id="signup-user-button">
+                                {{ 'form.user.account.create'|trans }}
+                            </a>
+                        </form>
+                    </div>
+                    <div class="span4">
+                        <form action="{{ path('route.user.check_login_sso', {'locale' : app.locale}) }}" method="post" class="well">
+                            {{ error }}
+                            {{ form_widget(formSSO) }}
+                            <div class="form-actions">
+                                <label>{{ 'form.user.or_login_with'|trans }}</label>
+                                <button type="submit" class="btn btn-primary">{{ 'form.user.login.google_account_button'|trans }}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

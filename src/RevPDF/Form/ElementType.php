@@ -16,6 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 use Symfony\Component\Validator\Constraints\Type;
 use Symfony\Component\Validator\Constraints\Collection;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ElementType extends AbstractType
 {
@@ -97,7 +98,7 @@ class ElementType extends AbstractType
             'choice',
             array(
                 'label' => 'form.element.source_control',
-                'property_path' => false,
+                'mapped' => false,
                 'choices' => $options['data']['sourceFields']
             )
         )
@@ -109,7 +110,7 @@ class ElementType extends AbstractType
         ->add(
             'delete_element_url',
             'hidden',
-            array('data' => $options['data']['deleteElementUrl'], "property_path" => false)
+            array('data' => $options['data']['deleteElementUrl'], "mapped" => false)
         )
         ->add('formElementSelected', 'hidden')
         ->add('type', 'hidden');
@@ -120,7 +121,7 @@ class ElementType extends AbstractType
         return array('0' => 'form.choice.no', '1' => 'form.choice.yes');
     }
 
-    public function getDefaultOptions(array $options)
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $collectionConstraint = new Collection(array('size' => new Type('numeric')));
 

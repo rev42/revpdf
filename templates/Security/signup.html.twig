@@ -26,22 +26,30 @@
 {% endblock %}
 
 {% block content %}
-    <div class="span4 offset6">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="page-header">
+                    <h1>{{ 'form.user.signup.title'|trans }}</h1>
+                </div>
 
-        <div class="page-header">
-            <h1>{{ 'form.user.signup.title'|trans }}</h1>
-        </div>
-        <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-vertical well">
-            {{ form_widget(form) }}
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">{{ 'form.user.signup.submit_button'|trans }}</button>
-                <p>
-                    {{ 'message.user.already_have_account'|trans }}{{ '?'|trans }}
-                    <a href="{{ path('route.user.login', {'locale' : app.locale}) }}" title="{{ 'form.user.login.title'|trans }}" id="login-user-button">
-                        {{ 'form.user.login.title'|trans }}
-                    </a>
-                </p>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <form action="" method="post" novalidate {{ form_enctype(form) }} class="form-vertical well">
+                            {{ form_widget(form) }}
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">{{ 'form.user.signup.submit_button'|trans }}</button>
+                                <p>
+                                    {{ 'message.user.already_have_account'|trans }}{{ '?'|trans }}
+                                    <a href="{{ path('route.user.login', {'locale' : app.locale}) }}" title="{{ 'form.user.login.title'|trans }}" id="login-user-button">
+                                        {{ 'form.user.login.title'|trans }}
+                                    </a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
+        </div>
     </div>
 {% endblock %}

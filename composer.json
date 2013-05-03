@@ -40,18 +40,6 @@
         {
             "type": "package",
             "package": {
-                "name": "jwage/EasyCSV",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/jwage/EasyCSV.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name" : "jshint/jshint",
                 "version" : "master",
                 "source" : {
@@ -65,36 +53,37 @@
     "minimum-stability": "dev",
     "require": {
         "php"                   : ">=5.3.3",
-        "silex/silex"           : "1.0.*",
-        "rev42/revpdf-lib"      : "dev-master",
-        "twig/twig"             : ">=1.8.0,<2.0-dev",
-        "monolog/monolog"       : ">=1.0.0,<1.2-dev",
-        "symfony/form"          : "2.1.*",
-        "symfony/translation"   : "2.1.*",
-        "symfony/twig-bridge"   : "2.1.*",
-        "symfony/validator"     : "2.1.*",
-        "symfony/yaml"          : "2.1.*",
-        "symfony/config"        : "2.1.*",
+        "silex/silex"           : "1.0.*@dev",
+        "rev42/revpdf-lib"      : "~2.1",
+        "twig/twig"             : "~1.8",
+        "monolog/monolog"       : "~1.0",
+        "symfony/form"          : "~2.2",
+        "symfony/translation"   : "~2.2",
+        "symfony/twig-bridge"   : "~2.2",
+        "symfony/validator"     : "~2.2",
+        "symfony/yaml"          : "~2.2",
+        "symfony/config"        : "~2.2",
         "kriswallsmith/assetic" : "1.0.*",
-        "symfony/security"      : "2.1.*",
-        "symfony/finder"        : "2.1.*",
-        "mheap/silex-assetic"   : "dev-master",
+        "symfony/security"      : "~2.2",
+        "symfony/finder"        : "~2.2",
+        "mheap/silex-assetic"   : "dev-master@dev",
         "doctrine/dbal"         : "2.2.0",
+        "fp/lightopenid"        : "dev-master",
         "knplabs/repository-service-provider" : "dev-master",
         "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "4.2.*",
-        "symfony/console": "2.1.*",
-        "symfony/process": "2.1.*"
+        "symfony/console"       : "~2.2",
+        "symfony/process"       : "~2.2",
     },
     "require-dev": {
         "twig/extensions": "dev-master",
-        "symfony/dom-crawler" : "2.1.*",
-        "symfony/css-selector" : "2.1.*",
-        "symfony/browser-kit" : "2.1.*",
+        "symfony/dom-crawler" : "~2.2",
+        "symfony/css-selector" : "~2.2",
+        "symfony/browser-kit" : "~2.2",
         "jquery/qunit" : "1.8.0",
         "gyoshev/qhint" : "dev-master",
         "jshint/jshint" : "master",
-        "symfony/Filesystem" : "2.1.*"
+        "symfony/Filesystem" : "~2.2"
     },
     "config": {
         "process-timeout": "500"
