@@ -4,7 +4,7 @@
     "description" : "Graphical PDF generation tool for PHP",
     "keywords" : ["revpdf", "pdf", "php"],
     "homepage" : "http://www.revpdf.org",
-    "version": "0.9.6-dev",
+    "version": "0.9.8-dev",
     "license" : "GPL-3.0",
     "authors" : [
         {
