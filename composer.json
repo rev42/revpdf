@@ -73,7 +73,7 @@
         "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "4.2.*",
         "symfony/console"       : "~2.2",
-        "symfony/process"       : "~2.2",
+        "symfony/process"       : "~2.2"
     },
     "require-dev": {
         "twig/extensions": "dev-master",
