@@ -59,13 +59,13 @@ class Part implements ControllerProviderInterface
                     $result = $app['repository.part']->insert($data);
                 } catch (\Exception $e) {
                     $result = false;
-                    $app['session']->setFlash('warning', $e->getMessage());
+                    $app['session']->getFlashBag()->add('warning', $e->getMessage());
                 }
                 if ($result !== false) {
-                    $app['session']->setFlash('success', 'message.element_created');
+                    $app['session']->getFlashBag()->add('success', 'message.element_created');
                 }
             } else {
-                $app['session']->setFlash('warning', 'form.invalid.supply');
+                $app['session']->getFlashBag()->add('warning', 'form.invalid.supply');
 
                 return $app->redirect($app['url_generator']->generate(
                         'route.part.add',
@@ -115,10 +115,10 @@ class Part implements ControllerProviderInterface
                     $result = $app['repository.part']->update($data, array('id' => $data['id']));
                 } catch (\Exception $e) {
                     $result = false;
-                    $app['session']->setFlash('warning', $e->getMessage());
+                    $app['session']->getFlashBag()->add('warning', $e->getMessage());
                 }
                 if ($result !== false) {
-                    $app['session']->setFlash('success', 'message.element_updated');
+                    $app['session']->getFlashBag()->add('success', 'message.element_updated');
 
                     return $app->redirect($app['url_generator']->generate(
                         'route.report.modify',
@@ -129,7 +129,7 @@ class Part implements ControllerProviderInterface
                     ));
                 }
             } else {
-                $app['session']->setFlash('warning', 'form.invalid.supply');
+                $app['session']->getFlashBag()->add('warning', 'form.invalid.supply');
             }
 
             return $app['twig']->render('Part/edit.html.twig', array(
@@ -142,7 +142,7 @@ class Part implements ControllerProviderInterface
         $controller->get('delete/{id}', function($id) use ($app) {
             $part = $app['repository.part']->find($id);
             $result = $app['repository.part']->delete(array('id' => $id));
-            $app['session']->setFlash('success', 'message.element_deleted');
+            $app['session']->getFlashBag()->add('success', 'message.element_deleted');
 
             return $app->redirect($app['url_generator']->generate(
                         'route.report.modify',

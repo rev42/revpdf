@@ -78,10 +78,10 @@ class Report implements ControllerProviderInterface
                     }
                 } catch (\Exception $e) {
                     $result = false;
-                    $app['session']->setFlash('warning', $e->getMessage());
+                    $app['session']->getFlashBag()->add('warning', $e->getMessage());
                 }
                 if ($result !== false) {
-                    $app['session']->setFlash('success', 'message.element_created');
+                    $app['session']->getFlashBag()->add('success', 'message.element_created');
 
                     return $app->redirect($app['url_generator']->generate(
                             'homepage',
@@ -89,7 +89,7 @@ class Report implements ControllerProviderInterface
                     ));
                 }
             } else {
-                $app['session']->setFlash('warning', 'form.invalid.supply');
+                $app['session']->getFlashBag()->add('warning', 'form.invalid.supply');
             }
 
             return $app['twig']->render('Report/add.html.twig', array(
@@ -197,10 +197,10 @@ class Report implements ControllerProviderInterface
                     $result = $app['repository.report']->update($data, array('id' => $data['id']));
                 } catch (\Exception $e) {
                     $result = false;
-                    $app['session']->setFlash('warning', $e->getMessage());
+                    $app['session']->getFlashBag()->add('warning', $e->getMessage());
                 }
                 if ($result !== false) {
-                    $app['session']->setFlash('success', 'message.element_updated');
+                    $app['session']->getFlashBag()->add('success', 'message.element_updated');
 
                     return $app->redirect($app['url_generator']->generate(
                             'homepage',
@@ -208,7 +208,7 @@ class Report implements ControllerProviderInterface
                     ));
                 }
             } else {
-                $app['session']->setFlash('warning', 'form.invalid.supply');
+                $app['session']->getFlashBag()->add('warning', 'form.invalid.supply');
             }
 
             return $app['twig']->render('Report/edit.html.twig', array(
@@ -300,7 +300,7 @@ class Report implements ControllerProviderInterface
 
                 return $response;
             } catch (\Exception $e) {
-                $app['session']->setFlash('warning', 'message.exception_occurred_with_info');
+                $app['session']->getFlashBag()->add('warning', 'message.exception_occurred_with_info');
                 $app['monolog']->addwarning('[report.generate] Exception: ' . $e->getMessage());
             }
 
@@ -384,7 +384,7 @@ class Report implements ControllerProviderInterface
         // Report Delete (GET)
         $controller->get('delete/{id}', function($id) use ($app) {
             $result = $app['repository.report']->delete(array('id' => $id));
-            $app['session']->setFlash('success', 'message.element_deleted');
+            $app['session']->getFlashBag()->add('success', 'message.element_deleted');
 
             return $app->redirect($app['url_generator']->generate(
                     'homepage',
