@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: oc
- * Date: 16/03/13
- * Time: 10:37
- * To change this template use File | Settings | File Templates.
- */
-
 namespace RevPDF\Controller;
 
 use Silex\ControllerProviderInterface;
@@ -25,6 +17,7 @@ use RevPDF\Form\UserLoginOpenIDType;
 use RevPDF\Form\UserSignupType;
 
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use LightOpenID;
 
 class Security implements ControllerProviderInterface
 {
@@ -169,9 +162,9 @@ class Security implements ControllerProviderInterface
                     $app['monolog']->addDebug('Checking existing user with mail: ' . $data['mail']);
 
                     $userProvider = new UserProvider($app['db']);
-                    $user = $this->checkUserExist($userProvider, $data['mail']);
+                    $isUserExist = $this->checkUserExist($userProvider, $data['mail']);
 
-                    if ($user) {
+                    if ($isUserExist) {
                         $user = $userProvider->loadUserByUsername($data['mail']);
                         if (!$user->isEnabled()) {
                             $app['monolog']->addDebug('User exists but not enabled');
@@ -264,7 +257,7 @@ class Security implements ControllerProviderInterface
                 $data = $formSSO->getData();
 
                 if (!$app['session']->has('username')) {
-                    $openid = new \LightOpenID($_SERVER['SERVER_NAME']);
+                    $openid = new LightOpenID($_SERVER['SERVER_NAME']);
 
                     if (!$openid->mode) {
                         $openid->identity = $data['openid_identifier'];
@@ -282,9 +275,9 @@ class Security implements ControllerProviderInterface
                             $app['monolog']->addDebug('Successfully logged in using openid');
 
                             $userProvider = new UserProvider($app['db']);
-                            $user = $this->checkUserExist($userProvider, $attributes['contact/email']);
+                            $isUserExist = $this->checkUserExist($userProvider, $attributes['contact/email']);
 
-                            if ($user) {
+                            if ($isUserExist) {
                                 $user = $userProvider->loadUserByUsername($attributes['contact/email']);
                                 if (!$user->isEnabled()) {
                                     $app['monolog']->addDebug('User exists but not enabled');
@@ -298,14 +291,15 @@ class Security implements ControllerProviderInterface
                                 }
                             } else {
                                 $data = array();
+                                $data['signupProvider'] = 'google';
                                 $data['firstname'] = $attributes['namePerson/first'];
                                 $data['lastname'] = $attributes['namePerson/last'];
                                 $data['roles'] = 'ROLE_USER';
                                 $data['mail'] = $attributes['contact/email'];
                                 $data['enabled'] = true;
-                                $data['password'] = 'password';
+                                $data['password'] = '';
                                 $app['monolog']->addDebug('Adding new user with those values: ' . json_encode($data));
-                                $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password']);
+                                $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password'], $data['signupProvider']);
                                 if ($resCreateUser <= 0) {
                                     $app['monolog']->addDebug('User cannot be created');
                                     $app['session']->setFlash('warning', 'message.user.signup.account_has_not_been_created');
@@ -316,14 +310,16 @@ class Security implements ControllerProviderInterface
                                         ));
                                 }
                                 $userProvider = new UserProvider($app['db']);
-                                $user = $this->checkUserExist($userProvider, $attributes['contact/email']);
-                                if ($user) {
+                                $isUserExist = $this->checkUserExist($userProvider, $attributes['contact/email']);
+                                if ($isUserExist) {
                                     $user = $userProvider->loadUserByUsername($attributes['contact/email']);
                                     $token = new UsernamePasswordToken($user, $user->getPassword(), 'secured', $user->getRoles());
                                     $app['session']->set('_security_secured', serialize($token));
                                     $app['session']->set('username', $user->getUsername());
                                 }
                             }
+                        } else {
+                            return $app->redirect($openid->authUrl());
                         }
                     }
                 }
@@ -357,22 +353,27 @@ class Security implements ControllerProviderInterface
      * @return bool|null
      */
     public function checkUserExist(UserProvider $userProvider, $identifier) {
-        $user = $userProvider->getUser($identifier);
-        if ($user) {
-            return $user;
+        if ($userProvider->getUser($identifier)) {
+            return true;
         } else {
             return false;
         }
     }
 
-    public function createUser($app, $firstname, $lastname, $role, $enabled, $mail, $password) {
+    public function createUser($app, $firstname, $lastname, $role, $enabled, $mail, $password, $signupProvider='default') {
         $data['firstname'] = $firstname;
         $data['lastname'] = $lastname;
         $data['roles'] = $role;
         $data['enabled'] = $enabled;
         $data['mail'] = $mail;
-        $user = new User($mail, '', $mail, '', explode(',', $data['roles']), false, true, true, true);
-        $data['password'] = $app['security.encoder_factory']->getEncoder($user)->encodePassword($password, $user->getSalt());
+        $data['signupProvider'] = $signupProvider;
+        $user = new User($mail, $password, $mail, '', explode(',', $data['roles']), false, true, true, true);
+
+        if (!empty($password)) {
+            $data['password'] = $app['security.encoder_factory']->getEncoder($user)->encodePassword($password, $user->getSalt());
+        } else {
+            $data['password'] = '';
+        }
         $app['monolog']->addDebug('Adding new user with those values: ' . json_encode($data));
 
         return $app['repository.user']->insert($data);
