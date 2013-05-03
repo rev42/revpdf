@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS `_r_user` (
   `mail` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `confirmation_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `roles` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `signupProvider` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),

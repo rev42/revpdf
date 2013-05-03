@@ -21,8 +21,8 @@ use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Knp\Provider\RepositoryServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
-
 use Symfony\Component\Translation\Loader\YamlFileLoader;
+
 
 $app = new Silex\Application();
 
@@ -196,9 +196,6 @@ $app->register(
 );
 
 
-if (isset($enable_security) && $enable_security == 1) {
-    require 'app_security.php';
-}
 
 if (isset($enable_assetic) && $enable_assetic == 1) {
     require 'app_assetic.php';

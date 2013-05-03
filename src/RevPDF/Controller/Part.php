@@ -51,7 +51,7 @@ class Part implements ControllerProviderInterface
                 new \RevPDF\Form\PartType()
             )->getForm();
     
-            $form->bindRequest($app['request']);
+            $form->bind($app['request']);
             $data = $form->getData();
 
             if ($form->isValid()) {
@@ -107,7 +107,7 @@ class Part implements ControllerProviderInterface
                             new \RevPDF\Form\PartType()
                     )->getForm();
 
-            $form->bindRequest($app['request']);
+            $form->bind($app['request']);
             $data = $form->getData();
 
             if ($form->isValid()) {

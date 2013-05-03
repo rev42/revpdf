@@ -1,5 +1,5 @@
 {
-    "hash": "4d337b96d05bd5afddb8d05b168588d8",
+    "hash": "bac43d7da7cf2d45a449f45fb905f0fe",
     "packages": [
         {
             "name": "doctrine/common",
@@ -122,6 +122,90 @@
                 "queryobject"
             ],
             "time": "2012-01-29 03:19:23"
+        },
+        {
+            "name": "fp/lightopenid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/formapro/LightOpenID.git",
+                "reference": "ad14146f9c93e90699888e150427aca431dc3c18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/formapro/LightOpenID/zipball/ad14146f9c93e90699888e150427aca431dc3c18",
+                "reference": "ad14146f9c93e90699888e150427aca431dc3c18",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "openid.php",
+                    "provider/provider.php"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mewp",
+                    "email": "mewp151+gitorious.org@gmail.com"
+                }
+            ],
+            "description": "A PHP 5 library for easy openid authentication",
+            "homepage": "https://github.com/formapro/LightOpenID",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "security"
+            ],
+            "time": "2012-04-04 08:39:51"
+        },
+        {
+            "name": "icehero/silex-opauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/icehero/silex-opauth.git",
+                "reference": "fc21653a38f2077e6574f68607f398840ac19c99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/icehero/silex-opauth/zipball/fc21653a38f2077e6574f68607f398840ac19c99",
+                "reference": "fc21653a38f2077e6574f68607f398840ac19c99",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": "*"
+            },
+            "require-dev": {
+                "opauth/facebook": "*",
+                "silex/silex": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "SilexOpauth": "src"
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Florin Popa",
+                    "email": "pp.flrn@gmail.com",
+                    "homepage": "http://florinpopa.net"
+                }
+            ],
+            "description": "Opauth silex framework service provider.",
+            "homepage": "https://github.com/icehero/silex-opauth",
+            "keywords": [
+                "OPAuth",
+                "oauth",
+                "silex"
+            ],
+            "time": "2013-03-10 19:50:32"
         },
         {
             "name": "jwage/easy-csv",
@@ -369,6 +453,147 @@
                 "psr-3"
             ],
             "time": "2013-02-26 10:18:11"
+        },
+        {
+            "name": "opauth/google",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opauth/google.git",
+                "reference": "0.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opauth/google/zipball/0.2.2",
+                "reference": "0.2.2",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.2.0",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Google strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "google"
+            ],
+            "time": "2012-10-18 14:39:52"
+        },
+        {
+            "name": "opauth/opauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opauth/opauth.git",
+                "reference": "c78915608658d5f25c20eecf771082e5317a4a36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opauth/opauth/zipball/c78915608658d5f25c20eecf771082e5317a4a36",
+                "reference": "c78915608658d5f25c20eecf771082e5317a4a36",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "suggest": {
+                "opauth/facebook": "Allows Facebook authentication",
+                "opauth/google": "Allows Google authentication",
+                "opauth/twitter": "Allows Twitter authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/Opauth/"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Multi-provider authentication framework for PHP",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "auth",
+                "facebook",
+                "google",
+                "oauth",
+                "omniauth",
+                "twitter"
+            ],
+            "time": "2013-02-13 16:47:31"
+        },
+        {
+            "name": "opauth/openid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opauth/openid.git",
+                "reference": "0.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opauth/openid/zipball/0.1.0",
+                "reference": "0.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.2.0",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "OpenID strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "auth"
+            ],
+            "time": "2012-06-08 07:00:03"
         },
         {
             "name": "pimple/pimple",
@@ -1747,7 +1972,11 @@
     "stability-flags": {
         "silex/silex": 20,
         "mheap/silex-assetic": 20,
+        "fp/lightopenid": 20,
         "knplabs/repository-service-provider": 20,
+        "icehero/silex-opauth": 20,
+        "opauth/google": 20,
+        "opauth/openid": 20,
         "twig/extensions": 20,
         "gyoshev/qhint": 20
     }
