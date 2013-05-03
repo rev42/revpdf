@@ -130,7 +130,7 @@ class Security implements ControllerProviderInterface
                         $app['repository.user']->update($data, array('id' => $user->getId()));
 
                         $app['monolog']->addDebug(sprintf('Account activated: %s (%d)', $user->getUsername(), $user->getId()));
-                        $app['session']->setFlash('warning', 'message.user.signup.success_enabling_account');
+                        $app['session']->getFlashBag()->add('warning', 'message.user.signup.success_enabling_account');
 
                         return $app->redirect($app['url_generator']->generate(
                                 'homepage',
@@ -139,7 +139,7 @@ class Security implements ControllerProviderInterface
                     }
                 }
                 $app['monolog']->addDebug('Account has NOT been enabled or is already enabled');
-                $app['session']->setFlash('warning', 'message.user.signup.failed_enabling_account');
+                $app['session']->getFlashBag()->add('warning', 'message.user.signup.failed_enabling_account');
 
                 return $app->redirect($app['url_generator']->generate(
                         'homepage',
@@ -168,7 +168,7 @@ class Security implements ControllerProviderInterface
                         $user = $userProvider->loadUserByUsername($data['mail']);
                         if (!$user->isEnabled()) {
                             $app['monolog']->addDebug('User exists but not enabled');
-                            $app['session']->setFlash('warning', 'message.user.signup.user_already_exist_but_not_validated');
+                            $app['session']->getFlashBag()->add('warning', 'message.user.signup.user_already_exist_but_not_validated');
 
                             return $app['twig']->render('Security/signup.html.twig', array(
                                     'form' => $form->createView(),
@@ -176,7 +176,7 @@ class Security implements ControllerProviderInterface
                                 ));
                         } else {
                             $app['monolog']->addDebug('User already exists with this mail');
-                            $app['session']->setFlash('warning', 'message.user.signup.user_already_exist');
+                            $app['session']->getFlashBag()->add('warning', 'message.user.signup.user_already_exist');
 
                             return $app['twig']->render('Security/signup.html.twig', array(
                                     'form' => $form->createView(),
@@ -196,7 +196,7 @@ class Security implements ControllerProviderInterface
 
                         if ($resCreateUser <= 0) {
                             $app['monolog']->addDebug('User cannot be created');
-                            $app['session']->setFlash('warning', 'Your account has not been created. Please try again.');
+                            $app['session']->getFlashBag()->add('warning', 'Your account has not been created. Please try again.');
 
                             return $app['twig']->render('Security/signup.html.twig', array(
                                     'form' => $form->createView(),
@@ -231,8 +231,8 @@ class Security implements ControllerProviderInterface
                         ->addPart($bodyHtml, 'text/html');
                     $app['mailer']->send($message);
 
-                    $app['session']->setFlash('success', 'message.user.signup_successful');
-                    $app['session']->setFlash('success', $app['translator']->trans('message.user.signup.please_validate_your_account', array('%mail%' => $data['mail'])));
+                    $app['session']->getFlashBag()->add('success', 'message.user.signup_successful');
+                    $app['session']->getFlashBag()->add('success', $app['translator']->trans('message.user.signup.please_validate_your_account', array('%mail%' => $data['mail'])));
 
                     return $app->redirect($app['url_generator']->generate(
                             'homepage',
@@ -240,7 +240,7 @@ class Security implements ControllerProviderInterface
                         ));
                 }
 
-                $app['session']->setFlash('warning', 'form.invalid.supply');
+                $app['session']->getFlashBag()->add('warning', 'form.invalid.supply');
 
                 return $app['twig']->render('Security/signup.html.twig', array(
                         'form' => $form->createView(),
@@ -281,7 +281,7 @@ class Security implements ControllerProviderInterface
                                 $user = $userProvider->loadUserByUsername($attributes['contact/email']);
                                 if (!$user->isEnabled()) {
                                     $app['monolog']->addDebug('User exists but not enabled');
-                                    $app['session']->setFlash('warning', 'message.user.signup.user_already_exist_but_not_validated');
+                                    $app['session']->getFlashBag()->add('warning', 'message.user.signup.user_already_exist_but_not_validated');
 
                                     $app->redirect($app['url_generator']->generate('homepage', array('locale' => $app['locale'])));
                                 } else {
@@ -302,7 +302,7 @@ class Security implements ControllerProviderInterface
                                 $resCreateUser = $this->createUser($app, $data['firstname'], $data['lastname'], $data['roles'], $data['enabled'], $data['mail'], $data['password'], $data['signupProvider']);
                                 if ($resCreateUser <= 0) {
                                     $app['monolog']->addDebug('User cannot be created');
-                                    $app['session']->setFlash('warning', 'message.user.signup.account_has_not_been_created');
+                                    $app['session']->getFlashBag()->add('warning', 'message.user.signup.account_has_not_been_created');
 
                                     return $app['twig']->render('Security/login.html.twig', array(
                                             'form' => $formSSO->createView(),
@@ -331,7 +331,7 @@ class Security implements ControllerProviderInterface
                 }
 
                 $app['twig']->addGlobal('username', $app['session']->get('username'));
-                $app['session']->setFlash('success', $app['translator']->trans('message.user.loggedin.as', array('%username%' => $app['session']->get('username'))));
+                $app['session']->getFlashBag()->add('success', $app['translator']->trans('message.user.loggedin.as', array('%username%' => $app['session']->get('username'))));
 
                 return $app->redirect($app['url_generator']->generate(
                         'homepage',
