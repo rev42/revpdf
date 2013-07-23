@@ -1,13 +1,13 @@
 <?php
 
-use SilexAssetic\AsseticExtension;
+use SilexAssetic\AsseticServiceProvider;
 
 // Assetic asset management library
 // If enabled , it compresses CSS using the YUI compressor and compresses
 // Javascript using the YUI compressor
 // Puts altogether css files / js files
 $app->register(
-    new AsseticExtension(), array(
+    new AsseticServiceProvider(), array(
         'assetic.options' => array(
             'debug' => $app['debug'],
             'auto_dump_assets' => true
