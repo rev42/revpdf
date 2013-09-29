@@ -35,5 +35,6 @@ $cli->addCommands(array(
 
     // REVPDF Commands
     new \RevPDF\Command\InstallCommand(),
+    new \RevPDF\Command\ResetExamplesCommand(),
 ));
 $cli->run();
