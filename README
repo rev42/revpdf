@@ -31,7 +31,7 @@ For LINUX/MAC users:
 * Adapt database settings in resources/config/config.php file
 
      chmod +x bin/console
-    ./bin/console revpdf:application:install --import_samples=[no|yes]
+    ./bin/console revpdf:application:install --create_tables=[yes|no] --import_samples=[no|yes]
 
 
 For WINDOWS users:
