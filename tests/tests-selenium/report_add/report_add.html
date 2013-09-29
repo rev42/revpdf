@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://silex-kitchen.local/" />
+<title>report_add</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">report_add</td></tr>
+</thead><tbody>
+<!--Add new report-->
+<!--Database must be empty-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=choose-language-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=English</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=add-report-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_full_name</td>
+	<td>le nom de l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_short_name</td>
+	<td>le nom court de l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_comments</td>
+	<td>le commentaire</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_source_value</td>
+	<td>la requête SQL</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_filename</td>
+	<td>invoice_test.pdf</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_file_destination</td>
+	<td>value=F</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_author</td>
+	<td>l'auteur</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_keywords</td>
+	<td>les mots clés</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_subject</td>
+	<td>le sujet</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_title</td>
+	<td>le titre</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_display_mode_zoom</td>
+	<td>label=Real</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_display_mode_layout</td>
+	<td>label=Two</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_paper_format</td>
+	<td>label=Legal (356x216)</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_page_orientation</td>
+	<td>label=Landscape</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_bottom_margin</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_right_margin</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_left_margin</td>
+	<td>25</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='main']/div[2]/form/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Element created</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=reportsList.1.1</td>
+	<td>le nom de l'état</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=reportsList.1.2</td>
+	<td>le nom court de l'état</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>id=reportsList.1.4</td>
+	<td>le commentaire</td>
+</tr>
+</tbody></table>
+</body>
+</html>

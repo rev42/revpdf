@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>textfield_save</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">textfield_save</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=choose-language-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=English</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>doubleClick</td>
+	<td>elementTextField</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>TextField2</td>
+	<td></td>
+</tr>
+<!--Position X/Y-->
+<tr>
+	<td>dragAndDrop</td>
+	<td>TextField2</td>
+	<td>+8,+40</td>
+</tr>
+<!--Width-->
+<tr>
+	<td>type</td>
+	<td>Element_width</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_width</td>
+	<td>\13</td>
+</tr>
+<!--Height-->
+<tr>
+	<td>type</td>
+	<td>Element_height</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_height</td>
+	<td>\13</td>
+</tr>
+<!--Div value-->
+<tr>
+	<td>type</td>
+	<td>Element_element_field</td>
+	<td>АВГДЕЅЗИѲ - l'état</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleBold</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleItalic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleUnderlined</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_font_family</td>
+	<td>label=Courier</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_size</td>
+	<td>label=10pt</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Element_text_color</td>
+	<td>FF0000</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_text_color</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Element_fill_color</td>
+	<td>A5AEB2</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_fill_color</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>btnAlignRight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderAll</td>
+	<td></td>
+</tr>
+<!--// Save element-->
+<tr>
+	<td>click</td>
+	<td>id=save-report-button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//p[@class='success']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Elements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@class='classTextField ui-draggable ui-resizable']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
