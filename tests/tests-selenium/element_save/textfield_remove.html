@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>textfield_remove</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">textfield_remove</td></tr>
+</thead><tbody>
+<!--// Remove Element-->
+<tr>
+	<td>contextMenu</td>
+	<td>//div[@class='classTextField ui-draggable ui-resizable elementSelected']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='jqContextMenu']/ul/li[2]</td>
+	<td>Delete</td>
+</tr>
+<tr>
+	<td>verifyConfirmation</td>
+	<td>regex:ment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Elements</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>//div[@class='classTextField ui-draggable ui-resizable']</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

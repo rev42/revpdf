@@ -1,0 +1,13 @@
+Developers
+==============
+
+## Enable developers mode
+Install all packages (including dev): 
+
+    # php composer.phar install --dev
+
+## Enable twig-extensions
+    - Modify app.php. 
+    - Look for the string "Uncomment this block..."
+    - You can use dump function in twig templates to debug variables (ie: {{ dump(myVar) }})
+    Note: for unknown reason, the application will be displayed in English

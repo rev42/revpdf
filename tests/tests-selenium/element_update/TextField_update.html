@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>TextField_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">TextField_update</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>TextField2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>Element_posxmm</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>Element_posymm</td>
+	<td>0</td>
+</tr>
+<!--// Check PROPERTIES-->
+<!--Position X/Y-->
+<!--Please check conversionMmPx (default: 4 => 40 pixels = 10 mm)-->
+<tr>
+	<td>dragAndDrop</td>
+	<td>TextField2</td>
+	<td>+8,+16</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>Element_posxmm</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>Element_posymm</td>
+	<td>4</td>
+</tr>
+<!--Width-->
+<tr>
+	<td>type</td>
+	<td>Element_width</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_width</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>assertElementWidth</td>
+	<td>TextField2</td>
+	<td>400</td>
+</tr>
+<!--Height-->
+<tr>
+	<td>type</td>
+	<td>Element_height</td>
+	<td>8</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_width</td>
+	<td>\13</td>
+</tr>
+<tr>
+	<td>assertElementHeight</td>
+	<td>TextField2</td>
+	<td>32</td>
+</tr>
+<!--Div value-->
+<tr>
+	<td>type</td>
+	<td>Element_element_field</td>
+	<td>АВГДЕЅЗИѲ - l'état</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>TextField2</td>
+	<td>АВГДЕЅЗИѲ - l'état</td>
+</tr>
+<!--// Check FONT STYLES-->
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-size: 12pt;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-family: helvetica;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*color: rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleBold</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleItalic</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnFontStyleUnderlined</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_font_family</td>
+	<td>label=Courier</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_size</td>
+	<td>label=10pt</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-size: 10pt;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-style: italic;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-weight: bold;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*text-decoration: underline;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*font-family: courier;.*</td>
+</tr>
+<!--// Check PARAGRAPH STYLES-->
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border: 1px solid rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*text-align: left;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderNone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>btnAlignCenter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border: 0px solid rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*text-align: center;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>btnAlignRight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*text-align: right;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderBottom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_border_width</td>
+	<td>label=Medium</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 0px 0px 2px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderLeft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 0px 0px 2px 2px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderRight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 0px 2px 2px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderTop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border: 2px solid rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderBottom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 2px 2px 0px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderTop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 0px 2px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderLeft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border-width: 0px 2px 0px 0px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderRight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border: 0px solid rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnBorderAll</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*border: 2px solid rgb\(0, 0, 0\);.*</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Element_border_width</td>
+	<td>label=Thin</td>
+</tr>
+<!--// Check LAYOUT-->
+<!--Need to create a new TextField-->
+<tr>
+	<td>doubleClick</td>
+	<td>elementTextField</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>TextField3</td>
+	<td></td>
+</tr>
+<!--Hack to have both elements selected-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAlignToRight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*left: 8px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*width: 398px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*left: 308px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*width: 98px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAlignToLeft</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*left: 8px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*width: 398px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*left: 8px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAlignToBottom</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*top: 40px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*top: 21px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*height: 18px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAlignToTop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*top: 40px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*top: 21px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*height: 18px;.*</td>
+</tr>
+<tr>
+	<td>dragAndDrop</td>
+	<td>elementTextField3</td>
+	<td>-8,-12</td>
+</tr>
+<!--Hack to have both elements selected-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAlignToTop</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*top: 28px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*top: 9px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*height: 18px;.*</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAdjustToLargest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*width: 398px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*width: 398px;.*</td>
+</tr>
+<!--Select ElementTextField2-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Element_width</td>
+	<td>25</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_width</td>
+	<td>\13</td>
+</tr>
+<!--Hack to have both elements selected-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAdjustToTightest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*width: 98px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*width: 98px;.*</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAdjustToHighest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*height: 30px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*height: 30px;.*</td>
+</tr>
+<!--Select ElementTextField2-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Element_height</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>keyDown</td>
+	<td>Element_height</td>
+	<td>\13</td>
+</tr>
+<!--Hack to have both elements selected-->
+<tr>
+	<td>type</td>
+	<td>formElementSelected</td>
+	<td>TextField2;elementTextField3</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>BtnAdjustToSmallest</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>TextField2@style</td>
+	<td>regexp:.*height: 18px;.*</td>
+</tr>
+<tr>
+	<td>assertAttribute</td>
+	<td>elementTextField3@style</td>
+	<td>regexp:.*height: 18px;.*</td>
+</tr>
+</tbody></table>
+</body>
+</html>

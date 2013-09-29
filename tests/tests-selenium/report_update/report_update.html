@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>report_update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">report_update</td></tr>
+</thead><tbody>
+<!--Update newly report-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=choose-language-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=English</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Properties</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_full_name</td>
+	<td>le nom de l'état 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_short_name</td>
+	<td>shortname l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_comments</td>
+	<td>le commentaire l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_source_value</td>
+	<td>la requête SQL l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_author</td>
+	<td>l'auteur l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_keywords</td>
+	<td>les mots clés l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_subject</td>
+	<td>le sujet l'état</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_title</td>
+	<td>le titre l'état</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_display_mode_zoom</td>
+	<td>label=Full width</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_display_mode_layout</td>
+	<td>label=Single</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_paper_format</td>
+	<td>label=A4</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>Report_page_orientation</td>
+	<td>label=Portrait</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_top_margin</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_bottom_margin</td>
+	<td>16</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_right_margin</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>Report_left_margin</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='main']/div[2]/form/div[2]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Element updated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>reportsList.1.1</td>
+	<td>le nom de l'état 2</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>reportsList.1.2</td>
+	<td>shortname l'état</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>reportsList.1.4</td>
+	<td>le commentaire l'état</td>
+</tr>
+</tbody></table>
+</body>
+</html>

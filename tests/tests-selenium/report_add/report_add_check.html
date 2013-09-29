@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://silex-kitchen.local/" />
+<title>report_add_check</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">report_add_check</td></tr>
+</thead><tbody>
+<!--Check newly report-->
+<!--First, run "report_add" test case-->
+<tr>
+	<td>click</td>
+	<td>id=choose-language-link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=English</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Properties</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_full_name</td>
+	<td>le nom de l'état</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_short_name</td>
+	<td>le nom court de l'état</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_comments</td>
+	<td>le commentaire</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_source_type</td>
+	<td>DB</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_source_value</td>
+	<td>la requête SQL</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_author</td>
+	<td>l'auteur</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_keywords</td>
+	<td>les mots clés</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_subject</td>
+	<td>le sujet</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_title</td>
+	<td>le titre</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_filename</td>
+	<td>invoice_test.pdf</td>
+</tr>
+<tr>
+	<td>verifySelectedValue</td>
+	<td>Report_file_destination</td>
+	<td>F</td>
+</tr>
+<tr>
+	<td>verifySelectedValue</td>
+	<td>Report_display_mode_zoom</td>
+	<td>real</td>
+</tr>
+<tr>
+	<td>verifySelectedValue</td>
+	<td>Report_display_mode_layout</td>
+	<td>two</td>
+</tr>
+<tr>
+	<td>verifySelectedValue</td>
+	<td>Report_paper_format</td>
+	<td>Legal</td>
+</tr>
+<tr>
+	<td>verifySelectedValue</td>
+	<td>Report_page_orientation</td>
+	<td>L</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_top_margin</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_bottom_margin</td>
+	<td>15</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_right_margin</td>
+	<td>20</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>Report_left_margin</td>
+	<td>25</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Cancel</td>
+	<td>Cancel</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Page Header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Page Footer</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
