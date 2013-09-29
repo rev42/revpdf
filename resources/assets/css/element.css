@@ -1,0 +1,75 @@
+.classImage {
+cursor:move;
+width:50px;
+height:50px;
+background-color:#CCC;
+}
+
+.classLine {
+cursor:move;
+width:100px;
+height:0;
+background-color:#FFF;
+border:1px solid;
+}
+
+.classRectangle {
+cursor:move;
+width:100px;
+height:20px;
+border:1px solid;
+}
+
+.classRoundedBox {
+cursor:move;
+width:100px;
+height:20px;
+border:1px solid;
+border-radius: 0.5em;
+-moz-border-radius: 0.5em;
+}
+
+.classDebug {
+position:absolute;
+top:500px;
+left:0;
+z-index:2;
+}
+
+.classPageNumber {
+cursor:move;
+width:120px;
+height:20px;
+background-color:#FFF;
+overflow:hidden;
+}
+
+.classTextField, .classTextZone {
+cursor:move;
+width:100px;
+height:20px;
+background-color:#FFF;
+overflow:hidden;
+}
+
+.classPartSelected{
+border:1px solid #FF0000;
+}
+
+.classPartNotSelected{
+border-color:#FFF;
+border-style:solid;
+border-width:1px;
+}
+
+.elementSelected {
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+opacity:0.5;
+filter:alpha(opacity=50);
+}
+
+.elementNotSelected {
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+opacity:1;
+filter:alpha(opacity=100);
+}
