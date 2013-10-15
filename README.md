@@ -53,7 +53,7 @@ Enable developers mode
 
 * Install all packages (including dev): 
 
-	# php composer.phar install --dev
+    php composer.phar install --dev
 
 * Enable twig-extensions
   - Modify app.php. 
