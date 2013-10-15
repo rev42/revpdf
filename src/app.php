@@ -149,7 +149,6 @@ $app->register(
 $app->register(
     new TwigServiceProvider(), array(
         'twig.options'          => array('cache' => false, 'strict_variables' => true),
-        'twig.form.templates'   => array('form_div_layout.html.twig', 'common/form_div_layout.html.twig'),
         'twig.path'             => array(__DIR__ . '/../templates')
     )
 );
