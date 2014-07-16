@@ -292,7 +292,7 @@ class Report implements ControllerProviderInterface
             }
 
             $lib = new $app['lib']['instance'];
-            $lib->setDataSource($app['db']);
+            $lib->setDataSource($app['db']->getWrappedConnection());
             try {
                 $response = new Response();
                 $lib->export($data);

@@ -50,30 +50,29 @@
             }
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php"                   : ">=5.3.3",
-        "silex/silex"           : "~1.0",
-        "rev42/revpdf-lib"      : "~2.1",
+        "silex/silex"           : "~1.0.0",
+        "rev42/revpdf-lib"      : "dev-master",
         "twig/twig"             : ">=1.8.0,<2.0-dev",
-        "monolog/monolog"       : "~1.5",
-        "symfony/form"          : "~2.3",
-        "symfony/translation"   : "~2.3",
-        "symfony/twig-bridge"   : "~2.3",
-        "symfony/validator"     : "~2.3",
-        "symfony/yaml"          : "~2.3",
-        "symfony/config"        : "~2.3",
-        "kriswallsmith/assetic" : "~1.0",
-        "symfony/security"      : "~2.3",
-        "symfony/finder"        : "~2.3",
-        "mheap/silex-assetic"   : "~1.0",
-        "doctrine/dbal"         : ">=2.2.0,<2.4.0-dev",
-        "fp/lightopenid"        : "dev-master",
+        "monolog/monolog"       : "~1.9.0",
+        "symfony/form"          : "~2.3.0",
+        "symfony/translation"   : "~2.3.0",
+        "symfony/twig-bridge"   : "~2.3.0",
+        "symfony/validator"     : "~2.3.0",
+        "symfony/yaml"          : "~2.3.0",
+        "symfony/config"        : "~2.3.0",
+        "kriswallsmith/assetic" : "~1.0.0",
+        "symfony/security"      : "~2.3.0",
+        "symfony/finder"        : "~2.3.0",
+        "mheap/silex-assetic"   : "~1.0.0",
+        "doctrine/dbal"         : "~2.2.0",
+        "lightopenid/lightopenid" : "~0.7.0",
         "knplabs/repository-service-provider" : "dev-master",
         "twitter/bootstrap"     : "2.2.2",
-        "swiftmailer/swiftmailer": "5.*",
-        "symfony/console"       : "~2.3",
-        "symfony/process"       : "~2.3"
+        "swiftmailer/swiftmailer": "~5.1.0",
+        "symfony/console"       : "~2.3.0",
+        "symfony/process"       : "~2.3.0"
     },
     "require-dev": {
         "twig/extensions": "dev-master",
@@ -86,7 +85,7 @@
         "symfony/Filesystem" : "~2.3"
     },
     "config": {
-        "process-timeout": "500"
+        "process-timeout": 500
     },
     "autoload": {
         "psr-0": {
