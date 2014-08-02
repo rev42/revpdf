@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "175a629cdca4cc03603af1428f5b0630",
+    "hash": "09ad98b024f2d8ea693dac2aed00f4da",
     "packages": [
         {
             "name": "doctrine/common",
@@ -2000,34 +2000,6 @@
                 "templating"
             ],
             "time": "2014-07-05 12:19:05"
-        },
-        {
-            "name": "twitter/bootstrap",
-            "version": "v2.2.2",
-            "target-dir": "twitter/bootstrap",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "9376a7c221a64c2bf508d02ea2ccd85748d10fcc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9376a7c221a64c2bf508d02ea2ccd85748d10fcc",
-                "reference": "9376a7c221a64c2bf508d02ea2ccd85748d10fcc",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development.",
-            "homepage": "http://twitter.github.com/bootstrap/",
-            "keywords": [
-                "bootstrap",
-                "css"
-            ],
-            "time": "2012-12-08 20:57:21"
         }
     ],
     "packages-dev": [

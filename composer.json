@@ -31,7 +31,6 @@
         "doctrine/dbal"         : "~2.2.0",
         "lightopenid/lightopenid" : "~0.7.0",
         "knplabs/repository-service-provider" : "dev-master",
-        "twitter/bootstrap"     : "2.2.2",
         "swiftmailer/swiftmailer": "~5.1.0",
         "symfony/console"       : "~2.3.0",
         "symfony/process"       : "~2.3.0"
