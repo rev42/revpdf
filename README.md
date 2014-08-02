@@ -47,35 +47,6 @@ For WINDOWS users:
     PATH_TO_PHP.EXE\php.exe bin/console revpdf:application:install --import_samples=[no|yes]
 
 
-
-Enable developers mode
-----------------------
-
-* Install all packages (including dev): 
-
-    php composer.phar install --dev
-
-* Enable twig-extensions
-  - Modify app.php. 
-  - Look for the string "Uncomment this block..."
-
-* Use dump function in twig templates to debug variables (ie: {{ dump(myVar) }})
-Note: for unknown reason, the application will be displayed in English
-
-* Enable CSS/JS compression
-  - Install yui-compressor
-  - Configure path to yui-compressor in resources/config/config.php
-  - Enable compression with AsseticExtension section in app.php
-
-* Launching javascript tests
-  - Load page "tests-javascript/index.html" into your browser
-
-* Launching selenium tests
-  - Using Firefox, download ans install Selenium IDE 
-    from http://seleniumhq.org/download/
-
-
-
 Help
 ----
 

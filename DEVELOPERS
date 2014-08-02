@@ -11,3 +11,17 @@ Install all packages (including dev):
     - Look for the string "Uncomment this block..."
     - You can use dump function in twig templates to debug variables (ie: {{ dump(myVar) }})
     Note: for unknown reason, the application will be displayed in English
+
+## Enable CSS/JS compression
+    - Install yui-compressor
+    - Configure path to yui-compressor in resources/config/config.php
+    - Enable compression with AsseticExtension section in app.php
+
+## Launching javascript tests
+    - Requires nodejs, gruntjs
+    Note: depending you OS, you may have to install other dependencies manually (https://www.npmjs.org/package/grunt-contrib-qunit)
+          for users of debian distributions, if issues when installing grunt-contrib-qunit
+          => http://stackoverflow.com/questions/21168141/can-not-install-packages-using-node-package-manager-in-ubuntu
+
+## Launching selenium tests
+    - Using Firefox, download ans install Selenium IDE (from http://seleniumhq.org/download)

@@ -12,44 +12,6 @@
             "email": "contact@revpdf.org"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name" : "jquery/qunit",
-                "version" : "1.8.0",
-                "source" : {
-                    "url" : "https://github.com/jquery/qunit.git",
-                    "type" : "git",
-                    "reference" : "v1.8.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name" : "gyoshev/qhint",
-                "version" : "master",
-                "source" : {
-                    "url" : "https://github.com/gyoshev/qhint.git",
-                    "type" : "git",
-                    "reference" : "master"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name" : "jshint/jshint",
-                "version" : "master",
-                "source" : {
-                    "url" : "https://github.com/jshint/jshint.git",
-                    "type" : "git",
-                    "reference" : "master"
-                }
-            }
-        }
-    ],
     "require": {
         "php"                   : ">=5.3.3",
         "silex/silex"           : "~1.0.0",
@@ -79,9 +41,6 @@
         "symfony/dom-crawler" : "~2.3",
         "symfony/css-selector" : "~2.3",
         "symfony/browser-kit" : "~2.3",
-        "jquery/qunit" : "1.8.0",
-        "gyoshev/qhint" : "dev-master",
-        "jshint/jshint" : "master",
         "symfony/Filesystem" : "~2.3"
     },
     "config": {

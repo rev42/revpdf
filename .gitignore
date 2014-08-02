@@ -1,3 +1,4 @@
 cache/*
 log/*.log
 resources/config/config.php
+node_modules

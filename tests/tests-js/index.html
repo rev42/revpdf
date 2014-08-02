@@ -5,8 +5,6 @@
         <meta http-equiv="Cache-Control" content="no-cache">
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Expires" content="0"> 
-        <script type="text/javascript" src="../../web/js/libs/jquery-ui-1.9.1.custom/js/jquery-1.8.2.js"></script>
-        <script type="text/javascript" src="../../web/js/libs/jquery-ui-1.9.1.custom/js/jquery-ui-1.9.1.custom.min.js"></script>
         <script type="text/javascript" src="../../resources/assets/js/revpdf/jquery.extend.Element.js"></script>
         <script type="text/javascript" src="../../resources/assets/js/revpdf/revpdf.buttons.border.js"></script>
         <script type="text/javascript" src="../../resources/assets/js/revpdf/revpdf.buttons.borderWidth.js"></script>
@@ -18,26 +16,14 @@
         <script type="text/javascript" src="../../resources/assets/js/revpdf/revpdf.js"></script>
         <script type="text/javascript" src="../../resources/assets/js/revpdf/revpdf.part.js"></script>
         <script type="text/javascript" src="../../resources/assets/js/revpdf/revpdf.report.js"></script>
-
-        <link rel="stylesheet" href="../../vendor/jquery/qunit/qunit/qunit.css" type="text/css" media="screen" />
-        <script type="text/javascript" src="../../vendor/jquery/qunit/qunit/qunit.js"></script>
-        <script type="text/javascript" src="../../vendor/jshint/jshint/src/stable/jshint.js"></script>
-        <script type="text/javascript" src="../../vendor/gyoshev/qhint/qhint.js"></script>
-        
-        <!-- Inclure les fichiers de test ici -->
-        <script type="text/javascript" src="tests/jsHintTest.js"></script>
-        <script type="text/javascript" src="tests/reportTest.js"></script>
-        <script type="text/javascript" src="tests/partTest.js"></script>
-        <script type="text/javascript" src="tests/elementTest.js"></script>
-
-  
     </head>
     <body>
-        <h1 id="qunit-header">QUnit</h1>
-        <h2 id="qunit-banner"></h2>
-        <div id="qunit-testrunner-toolbar"></div>
-        <h2 id="qunit-userAgent"></h2>
-        <ol id="qunit-tests"></ol>
-        <div id="qunit-fixture">test markup, will be hidden</div>
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+        <script type="text/javascript" src="../../node_modules/qunitjs/qunit/qunit.js"></script>
+        <!-- Inclure les fichiers de test ici -->
+        <script type="text/javascript" src="reportTest.js"></script>
+        <script type="text/javascript" src="partTest.js"></script>
+        <script type="text/javascript" src="elementTest.js"></script>
     </body>
 </html>
