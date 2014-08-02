@@ -10,8 +10,8 @@
 */
 
 // UI theme
-// Choices : bootstrap, cerulean, cyborg, default, journal, slate, spacelab, united
-$theme = 'default';
+// Choices : bootstrap, cerulean, cyborg, default, journal, slate, spacelab, united or <empty value> for default
+$app['theme'] = '';
 
 // Database
 $app['db.config.driver']    = ''; # doctrine supported driver (pdo_mysql, pdo_sqlite, pdo_pgsql, pdo_oci, oci8, ibm_db2, pdo_ibm, pdo_sqlsrv, mysqli)
@@ -33,9 +33,6 @@ $app['mailer.config.auth_mode']  = '';
 // Default locale
 $app['locale_fallback'] = 'fr';
 $app['supported_languages'] = array('en', 'fr');
-
-// Path to yui_compressor (if needed)
-$app['assetic.filter.yui_compressor.path'] = __DIR__ . '/../java/yuicompressor.jar';
 
 // Enable user security component (user login, user account...) ?
 $enable_security = 0;

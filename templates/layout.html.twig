@@ -15,7 +15,12 @@
         
         {% block stylesheets %}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/2.2.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/styles.css">
+        {% if app.theme != '' %}
+            {% set theme = 'styles-' ~ app.theme ~ '.css' %}
+        {% else %}
+            {% set theme = 'styles.css' %}
+        {% endif %}
+        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/{{ theme }}">
         <link rel="stylesheet" href="{{ app.request.basepath }}/js/libs/jquery-ui-1.9.1.custom/css/ui-lightness/jquery-ui-1.9.1.custom.css"></script>
         {% endblock %}
         

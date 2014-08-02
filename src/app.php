@@ -155,6 +155,11 @@ $app->register(
 
 /* Uncomment this block to enable developers functions
 $app['twig']->addExtension(new Twig_Extension_Debug()); */
+$app['twig'] = $app->share($app->extend('twig', function (\Twig_Environment $twig, Silex\Application $app) {
+    $twig->addGlobal('theme', $app['theme']);
+
+    return $twig;
+}));
 
 /**
  * Services:
@@ -196,9 +201,6 @@ $app->register(
 
 
 
-if (isset($enable_assetic) && $enable_assetic == 1) {
-    require 'app_assetic.php';
-}
 
 return $app;
 
