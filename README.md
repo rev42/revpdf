@@ -61,7 +61,6 @@ RevPDF is powered by powerful and robust components (thanks to their authors):
 * HTML5 boilerplate (http://html5boilerplate.com)
 * Twitter Bootrap v2 with form integration (http://twitter.github.com/bootstrap)
 * Silex extensions & Providers:
-    * Assetics
     * Doctrine
     * Form
     * Monolog
@@ -70,6 +69,7 @@ RevPDF is powered by powerful and robust components (thanks to their authors):
     * Translation
     * Twig
     * UrlGenerator
+* Grunt (http://gruntjs.com)
 * jQuery (http://jquery.com)
 * json2 (http://www.JSON.org/js.html)
 * jQuery Tablesorter (http://tablesorter.com)
